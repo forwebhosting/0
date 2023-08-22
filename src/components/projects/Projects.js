@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { projectOne, projectTwo, projectThree } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 
+
 // Add your CSS styles using styled-components
 const SignContainer = styled.div`
 position: relative; /* Set the position to relative */

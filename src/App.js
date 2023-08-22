@@ -21,8 +21,9 @@ function App() {
         <ResumeButton />
         <Banner />
         <Features />
-        <Projects />
         <Resume />
+        <Projects />
+        
         <Certificate />
         {/* <Testimonial /> */}
         <Contact />
