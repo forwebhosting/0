@@ -1,0 +1,112 @@
+import React from 'react'
+import Title from '../layouts/Title'
+import { projectOne, projectTwo, projectThree } from "../../assets/index";
+import ProjectsCard from './CertificateCard';
+
+const Certificate = () => {
+  return (
+    <section
+      id="projects"
+      className="w-full py-20 border-b-[1px] border-b-black"
+    >
+      <div className="flex justify-center items-center text-center">
+        <Title
+          title="VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK"
+          des="My Certificates"
+        />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-14">
+
+
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectThree}
+        />
+        <ProjectsCard
+          title="Certificates  "
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectThree}
+        />
+        <ProjectsCard
+          title=" Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+        <ProjectsCard
+          title=" Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+      </div>
+      <br/>
+      <br/>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 xl:gap-14">
+
+
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectThree}
+        />
+        <ProjectsCard
+          title="Certificates  "
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectThree}
+        />
+        <ProjectsCard
+          title=" Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+        <ProjectsCard
+          title=" Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectOne}
+        />
+        <ProjectsCard
+          title="Certificates"
+          des="Mohamed thowfick 's certificates uploading is unser processing , it will be updates soon"
+          src={projectTwo}
+        />
+      </div>
+    </section>
+  );
+}
+
+export default Certificate
