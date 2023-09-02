@@ -6,8 +6,8 @@ import Achievement from './Achievement';
 import Experience from "./Experience"
 
 const Resume = () => {
-  const [educationData, setEducationData] = useState(true);
-  const [skillData, setSkillData] = useState(false);
+  const [educationData, setEducationData] = useState(false);
+  const [skillData, setSkillData] = useState(true);
   const [experienceData, setExperienceData] = useState(false);
   const [achievementData, setAchievementData] = useState(false);
   return (
@@ -69,8 +69,9 @@ const Resume = () => {
 
         </ul>
       </div>
-      {educationData && <Education />}
+      
       {skillData && <Skills />}
+      {educationData && <Education />}    
       {achievementData && <Achievement />}
       {experienceData && <Experience />}
 
