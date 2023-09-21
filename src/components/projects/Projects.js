@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import Title from '../layouts/Title'
-import { projectOne, projectTwo, projectThree } from "../../assets/index";
+import { projectOne, projectTwo, DisneyClone } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 
 
@@ -308,6 +308,7 @@ overflow: hidden;
  
 `;
 
+const DisneyCloneLink = "https://disneyclone-thowfickofficial.netlify.app/";
 
 const Projects = () => {
   return (
@@ -339,10 +340,18 @@ const Projects = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 xl:gap-14">
         <ProjectsCard
+          title="OTT CLONE"
+          // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
+          src={DisneyClone}
+          websiteLink= {DisneyCloneLink}
+        />
+        <ProjectsCard
           title="SOCIAL MEDIA CLONE"
           // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
           src={projectOne}
+          
         />
         <ProjectsCard
           title="E-commerce Website"
@@ -350,12 +359,12 @@ const Projects = () => {
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
           src={projectTwo}
         />
-        <ProjectsCard
+        {/* <ProjectsCard
           title="Chatting App"
           // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
           src={projectThree}
-        />
+        /> */}
         {/* <ProjectsCard
           title="SOCIAL MEDIA CLONE"
           des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.

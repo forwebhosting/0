@@ -1,6 +1,7 @@
 import logo from "./images/logo.png";
 import bannerImg from "./images/tf.png";
 import projectOne from "./images/projects/socialmedia1.jpg";
+import DisneyClone from "./images/projects/disneyClone.png";
 import projectTwo from "./images/projects/ec4.jpg";
 import projectThree from "./images/projects/chat1.jpg";
 import testimonialOne from "./images/testmonial/testimonialOne.png";
@@ -14,6 +15,7 @@ import Resumepdf from "./pdf/MOHAMED THOWFICK Resume.pdf";
 export {
   logo,
   bannerImg,
+  DisneyClone,
   projectOne,
   projectTwo,
   projectThree,
