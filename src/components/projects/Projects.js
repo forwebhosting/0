@@ -309,6 +309,7 @@ overflow: hidden;
 `;
 
 const DisneyCloneLink = "https://disneyclone-thowfickofficial.netlify.app/";
+const HabeebEcomLink = "https://habeebecommerce-thowfickofficial.netlify.app/";
 
 const Projects = () => {
   return (
@@ -358,6 +359,7 @@ const Projects = () => {
           // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
           src={projectTwo}
+          websiteLink= {HabeebEcomLink}
         />
         {/* <ProjectsCard
           title="Chatting App"
