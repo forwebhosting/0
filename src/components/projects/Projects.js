@@ -310,6 +310,7 @@ overflow: hidden;
 
 const DisneyCloneLink = "https://disneyclone-thowfickofficial.netlify.app/";
 const HabeebEcomLink = "https://habeebecommerce-thowfickofficial.netlify.app/";
+const YoutubeCloneLink = "https://youtubeclone-thowfickofficial.netlify.app/";
 
 const Projects = () => {
   return (
@@ -352,7 +353,7 @@ const Projects = () => {
           // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
           src={projectOne}
-          
+          websiteLink= {YoutubeCloneLink}
         />
         <ProjectsCard
           title="E-commerce Website(Habeeb)"
