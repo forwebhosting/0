@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import { contactImg } from "../../assets/index";
 
 const ContactLeft = () => {
@@ -7,6 +7,7 @@ const ContactLeft = () => {
   const twitterLink = "https://twitter.com/thowfickofficia";
   const linkedinLink = "https://www.linkedin.com/in/thowfickofficial/";
   const instagrameLink = "https://www.instagram.com/thowfick_official/";
+  const githubLink = "https://github.com/thowfickofficial";
 
   const handleFacebookClick = () => {
     window.open(facebookLink, "_blank");
@@ -21,6 +22,9 @@ const ContactLeft = () => {
   };
   const handleInstagramClick = () => {
     window.open(instagrameLink, "_blank");
+  };
+  const handleGithubClick = () => {
+    window.open(githubLink, "_blank");
   };
 
   const handlePhoneClick = () => {
@@ -71,6 +75,9 @@ const ContactLeft = () => {
           </span>
           <span className="bannerIcon" onClick={handleInstagramClick}>
             <FaInstagram />
+          </span>
+          <span className="bannerIcon" onClick={handleGithubClick}>
+            <FaGithub />
           </span>
         </div>
       </div>
