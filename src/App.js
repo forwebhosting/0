@@ -5,8 +5,8 @@ import Features from "./components/features/Features";
 import Footer from "./components/footer/Footer";
 import FooterBottom from "./components/footer/FooterBottom";
 import Navbar from "./components/navbar/Navbar";
-import Projects from "./components/projects/Projects";
-import Slider from "./components/slider/Projects";
+// import Projects from "./components/projects/Projects";
+import ProjectsSlider from "./components/slider/Projects";
 import Resume from "./components/resume/Resume";
 import Certificate from "./components/certificate/Certificate";
 // import Testimonial from "./components/tesimonial/Testimonial";
@@ -23,8 +23,8 @@ function App() {
         <Banner />
         <Features />
         <Resume />
-        <Projects />
-        <Slider />
+        {/* <Projects /> */}
+        <ProjectsSlider />
         
         <Certificate />
         {/* <Testimonial /> */}
