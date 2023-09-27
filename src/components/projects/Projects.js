@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 // import Title from '../layouts/Title'
-import { projectOne, projectTwo, DisneyClone } from "../../assets/index";
+import { projectOne, projectTwo, DisneyClone, AmazonClone, NobrokerClone, PhisingTool } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 
 
@@ -311,6 +311,7 @@ overflow: hidden;
 const DisneyCloneLink = "https://disneyclone-thowfickofficial.netlify.app/";
 const HabeebEcomLink = "https://habeebecommerce-thowfickofficial.netlify.app/";
 const YoutubeCloneLink = "https://youtubeclone-thowfickofficial.netlify.app/";
+const AmazonCloneLink = "https://amazonclone-thowfickofficial.netlify.app/";
 
 const Projects = () => {
   return (
@@ -362,25 +363,26 @@ const Projects = () => {
           src={projectTwo}
           websiteLink= {HabeebEcomLink}
         />
-        {/* <ProjectsCard
-          title="Chatting App"
+        <ProjectsCard
+          title="Amazon Clone"
           // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
           //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
-          src={projectThree}
-        /> */}
+          src={AmazonClone}
+          websiteLink= {AmazonCloneLink}
+        />
+        <ProjectsCard
+          title="NoBroker Clone"
+          // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
+          src={NobrokerClone}
+        />
+        <ProjectsCard
+          title="Phising Tool"
+          // des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          //     Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
+          src={PhisingTool}
+        />
         {/* <ProjectsCard
-          title="SOCIAL MEDIA CLONE"
-          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
-          src={projectThree}
-        />
-        <ProjectsCard
-          title="E-commerce Website"
-          des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
-          src={projectOne}
-        />
-        <ProjectsCard
           title="Chatting App"
           des=" Lorem, ipsum dolor sit amet consectetur adipisicing elit.
               Explicabo quibusdam voluptate sapiente voluptatibus harum quidem!"
