@@ -342,7 +342,7 @@ const Certificate = () => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
         },
       },
     ],
