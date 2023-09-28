@@ -365,20 +365,19 @@ const Certificate = () => {
       <div className="flex justify-center items-center text-center">
         {/* <Title title="" des="My Certificates" /> */}
         <SignContainer className="w-full " >
-            <div className="sign" id="one">M</div>
-            <div className="sign" id="two">y</div>
-            <div className="sign" id="two"> </div>
-            <div className="sign" id="two">C</div>
-            <div className="sign" id="four">e</div>
-            <div className="sign" id="three">t</div>
-            <div className="sign" id="two">i</div>
-            <div className="sign" id="two">f</div>
+            <div className="sign" id="one">C</div>
+            <div className="sign" id="two">e</div>
+            <div className="sign" id="two">r</div>
+            <div className="sign" id="two">t</div>
             <div className="sign" id="four">i</div>
+            <div className="sign" id="three">f</div>
+            <div className="sign" id="two">i</div>
             <div className="sign" id="two">c</div>
             <div className="sign" id="four">a</div>
-            <div className="sign" id="three">t</div>
-            <div className="sign" id="two">e</div>
-            <div className="sign" id="four">s</div>
+            <div className="sign" id="two">t</div>
+            <div className="sign" id="four">es</div>
+            
+           
           </SignContainer>
       </div>
       <Slider {...sliderSettings} ref={sliderRef} className="relative">
