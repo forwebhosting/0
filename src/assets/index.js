@@ -13,6 +13,10 @@ import quote from "./images/testmonial/quote.png";
 import contactImg from "./images/contact/contactImg.jpg";
 import ExCertificate from "./images/certificates/example.jpg";
 import NSE1 from "./images/certificates/NSE1.png";
+import NSE2 from "./images/certificates/NSE2.png";
+import NSE3 from "./images/certificates/NSE3.png";
+import ICIP from "./images/certificates/ICIP.png";
+import endpoint_security from "./images/certificates/endpoint_security.png";
 import Resumepdf from "./pdf/MOHAMED THOWFICK Resume.pdf";
 // import Certificate from "../components/certificate/Certificate";
 
@@ -32,5 +36,9 @@ export {
   contactImg,
   ExCertificate,
   NSE1,
+  NSE2,
+  NSE3,
+  ICIP,
+  endpoint_security,
   Resumepdf
 };

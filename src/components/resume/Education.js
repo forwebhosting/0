@@ -45,6 +45,18 @@ const Education = () => {
           <h2 className="text-3xl md:text-4xl font-bold">Internship</h2>
         </div>
         <div className="mt-6 lgl:mt-14 w-full h-[1000px] border-l-[6px] border-l-black border-opacity-30 flex flex-col gap-10">
+        <ResumeCard
+            title="Cyber Security Engineer"
+            subTitle="Senselearner Technologies  - (Sep - Oct 2023)"
+            result="Uttarakhand, India  "
+            // des="Google's hiring process is an important part of our culture. Googlers care deeply about their teams and the people who make them up."
+          />
+          <ResumeCard
+            title="Cyber Security "
+            subTitle="Cyberdosti Technologies  - (Sep 2023)"
+            result="India"
+            // des="A popular destination with a growing number of highly qualified homegrown graduates, it's true that securing a role in Malaysia isn't easy."
+          />
           <ResumeCard
             title="Full Stack Developer"
             subTitle="IMAGGAR Technologies - (2023)"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'; // Added missing dependencies
 // import Title from '../layouts/Title';
-import { ExCertificate, NSE1 } from "../../assets/index";
+import {  NSE1, NSE2, NSE3, ICIP, endpoint_security } from "../../assets/index";
+// import { ExCertificate, NSE1, NSE2, NSE3, ICIP, endpoint_security } from "../../assets/index";
 import ProjectsCard from './CertificateCard';
 import CertificatePopup from './CertificatePopup';
 import Slider from 'react-slick';
@@ -323,6 +324,8 @@ const Certificate = () => {
     setShowCertificate(!showCertificate);
   };
 
+  
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -383,47 +386,47 @@ const Certificate = () => {
       <Slider {...sliderSettings} ref={sliderRef} className="relative">
       <div  className="project-card transition-transform transform scale-90 hover:scale-100">
             <ProjectsCard
-              title="Fortinet NSE1"
-              des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
+              title="Fortinet NSE1 Certification"
+              //des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
               src={NSE1}
-              link="https://example-link1.com"
-              onGithubClick={() => toggleCertificatePopup(ExCertificate)}
+              // link="https://example-link1.com"
+              // onGithubClick={() => toggleCertificatePopup(ExCertificate)}
             />
           </div>
           <div  className="project-card transition-transform transform scale-90 hover:scale-100">
             <ProjectsCard
-              title="Certificates"
-              des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
-              src={ExCertificate}
-              link="https://example-link1.com"
-              onGithubClick={() => toggleCertificatePopup(ExCertificate)}
+              title="Fortinet NSE2 Certification"
+              //des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
+              src={NSE2}
+              // link="https://example-link1.com"
+              // onGithubClick={() => toggleCertificatePopup(ExCertificate)}
             />
           </div>
           <div  className="project-card transition-transform transform scale-90 hover:scale-100">
             <ProjectsCard
-              title="Certificates"
-              des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
-              src={ExCertificate}
-              link="https://example-link1.com"
-              onGithubClick={() => toggleCertificatePopup(ExCertificate)}
+              title="Fortinet NSE3 Certification"
+              //des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
+              src={NSE3}
+              // link="https://example-link1.com"
+              // onGithubClick={() => toggleCertificatePopup(ExCertificate)}
             />
           </div>
           <div  className="project-card transition-transform transform scale-90 hover:scale-100">
             <ProjectsCard
-              title="Certificates"
-              des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
-              src={ExCertificate}
-              link="https://example-link1.com"
-              onGithubClick={() => toggleCertificatePopup(ExCertificate)}
+              title="ICIP(Critical Infrastructure Protection)"
+              // des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
+              src={ICIP}
+              // link="https://example-link1.com"
+              // onGithubClick={() => toggleCertificatePopup(ExCertificate)}
             />
           </div>
           <div  className="project-card transition-transform transform scale-90 hover:scale-100">
             <ProjectsCard
-              title="Certificates"
-              des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
-              src={ExCertificate}
-              link="https://example-link1.com"
-              onGithubClick={() => toggleCertificatePopup(ExCertificate)}
+              title="CISCO EndPoint Security "
+              //des="Mohamed Thowfick's certificates uploading is under processing, it will be updated soon"
+              src={endpoint_security}
+              // link="https://example-link1.com"
+              // onGithubClick={() => toggleCertificatePopup(ExCertificate)}
             />
           </div>
       </Slider>
