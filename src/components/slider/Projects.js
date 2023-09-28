@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { projectOne, projectTwo, DisneyClone, AmazonClone, NobrokerClone, PhisingTool } from "../../assets/index";
+import { projectOne, projectTwo, DisneyClone, AmazonClone, NobrokerClone, PhisingTool, KeyLogger } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 import styled from 'styled-components';
 
@@ -416,6 +416,13 @@ const Projects = () => {
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
         <ProjectsCard title="Phising Tool" src={PhisingTool} />
+        </div>
+        <div className="project-card transition-transform transform scale-90 hover:scale-100">
+        <ProjectsCard
+          title="KeyLogger"
+          src={KeyLogger}
+          // websiteLink={KeyLoggerLink}
+        />
         </div>
       </Slider>
      

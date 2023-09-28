@@ -7,6 +7,7 @@ import projectThree from "./images/projects/chat1.jpg";
 import AmazonClone from "./images/projects/amazon2.jpg";
 import NobrokerClone from "./images/projects/nobroker.png";
 import PhisingTool from "./images/projects/PhisingTool.jpg";
+import KeyLogger from "./images/projects/KeyLogger.jpg";
 import testimonialOne from "./images/testmonial/testimonialOne.png";
 import testimonialTwo from "./images/testmonial/testimonialTwo.png";
 import quote from "./images/testmonial/quote.png";
@@ -27,6 +28,7 @@ export {
   AmazonClone,
   NobrokerClone,
   PhisingTool,
+  KeyLogger,
   projectOne,
   projectTwo,
   projectThree,
