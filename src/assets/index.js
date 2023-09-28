@@ -12,6 +12,7 @@ import testimonialTwo from "./images/testmonial/testimonialTwo.png";
 import quote from "./images/testmonial/quote.png";
 import contactImg from "./images/contact/contactImg.jpg";
 import ExCertificate from "./images/certificates/example.jpg";
+import NSE1 from "./images/certificates/NSE1.png";
 import Resumepdf from "./pdf/MOHAMED THOWFICK Resume.pdf";
 // import Certificate from "../components/certificate/Certificate";
 
@@ -30,5 +31,6 @@ export {
   quote,
   contactImg,
   ExCertificate,
+  NSE1,
   Resumepdf
 };

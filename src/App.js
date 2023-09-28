@@ -22,9 +22,10 @@ function App() {
         <ResumeButton />
         <Banner />
         <Features />
+        <ProjectsSlider />
         <Resume />
         {/* <Projects /> */}
-        <ProjectsSlider />
+        
         
         <Certificate />
         {/* <Testimonial /> */}

@@ -314,6 +314,7 @@ const HabeebEcomLink = "https://habeebecommerce-thowfickofficial.netlify.app/";
 const YoutubeCloneLink = "https://youtubeclone-thowfickofficial.netlify.app/";
 const AmazonCloneLink = "https://amazonclone-thowfickofficial.netlify.app/";
 
+
 const Projects = () => {
   const sliderRef = useRef(null);
 
@@ -417,6 +418,7 @@ const Projects = () => {
         <ProjectsCard title="Phising Tool" src={PhisingTool} />
         </div>
       </Slider>
+     
     </section>
   );
 }
