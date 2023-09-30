@@ -54,7 +54,7 @@ const Education = () => {
           <ResumeCard
             title="Cyber Security "
             subTitle="Cyberdosti Technologies  - (Sep 2023)"
-            result="India"
+            result="Madhya Pradesh, India"
             // des="A popular destination with a growing number of highly qualified homegrown graduates, it's true that securing a role in Malaysia isn't easy."
           />
           <ResumeCard

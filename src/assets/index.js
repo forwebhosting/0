@@ -3,8 +3,9 @@ import bannerImg from "./images/tf.png";
 import projectOne from "./images/projects/socialmedia1.jpg";
 import DisneyClone from "./images/projects/disneyClone.png";
 import projectTwo from "./images/projects/ec4.jpg";
-import projectThree from "./images/projects/chat1.jpg";
+import FoodWebsite from "./images/projects/FoodWebsite.jpg";
 import AmazonClone from "./images/projects/amazon2.jpg";
+import ZomatoClone from "./images/projects/ZomatoClone.jpg";
 import NobrokerClone from "./images/projects/nobroker.png";
 import PhisingTool from "./images/projects/PhisingTool.jpg";
 import KeyLogger from "./images/projects/KeyLogger.jpg";
@@ -26,12 +27,13 @@ export {
   bannerImg,
   DisneyClone,
   AmazonClone,
+  ZomatoClone,
   NobrokerClone,
   PhisingTool,
   KeyLogger,
   projectOne,
   projectTwo,
-  projectThree,
+  FoodWebsite,
   testimonialOne,
   testimonialTwo,
   quote,

@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { projectOne, projectTwo, DisneyClone, AmazonClone, NobrokerClone, PhisingTool, KeyLogger } from "../../assets/index";
+import { projectOne, projectTwo, FoodWebsite, DisneyClone, AmazonClone, NobrokerClone, PhisingTool, KeyLogger, ZomatoClone } from "../../assets/index";
 import ProjectsCard from './ProjectsCard';
 import styled from 'styled-components';
 
@@ -313,6 +313,13 @@ const DisneyCloneLink = "https://disneyclone-thowfickofficial.netlify.app/";
 const HabeebEcomLink = "https://habeebecommerce-thowfickofficial.netlify.app/";
 const YoutubeCloneLink = "https://youtubeclone-thowfickofficial.netlify.app/";
 const AmazonCloneLink = "https://amazonclone-thowfickofficial.netlify.app/";
+const ZomatoCloneLink = "https://zomatoclone-thowfickofficial.netlify.app/";
+const NobrokerCloneLink = "https://nobrokerclone-thowfickofficial.netlify.app/";
+const FoodWebsiteLink = "https://habeebfoods.netlify.app/";
+const PhisingToolLink = "https://www.linkedin.com/posts/thowfickofficial_cyberdosti-cybersecurity-phishingawareness-activity-7109775363626475522-v1Ju?utm_source=share&utm_medium=member_desktop";
+const KeyLoggerLink = "https://www.linkedin.com/posts/thowfickofficial_keylogger-cybersecurity-ethicalhacking-activity-7111929822079062016-ziyT?utm_source=share&utm_medium=member_desktop";
+
+
 
 
 const Projects = () => {
@@ -366,66 +373,89 @@ const Projects = () => {
           des="My Projects"
         /> */}
 
-        
-          <SignContainer className="w-full " >
-            <div className="sign" id="one">M</div>
-            <div className="sign" id="two">y</div>
-            <div className="sign" id="two"> </div>
-            <div className="sign" id="two">P</div>
-            <div className="sign" id="four">r</div>
-            <div className="sign" id="three">o</div>
-            <div className="sign" id="two">j</div>
-            <div className="sign" id="two">e</div>
-            <div className="sign" id="four">c</div>
-            <div className="sign" id="two">t</div>
-            <div className="sign" id="four">s</div>
-          </SignContainer>
-        
+
+        <SignContainer className="w-full " >
+          <div className="sign" id="one">M</div>
+          <div className="sign" id="two">y</div>
+          <div className="sign" id="two"> </div>
+          <div className="sign" id="two">P</div>
+          <div className="sign" id="four">r</div>
+          <div className="sign" id="three">o</div>
+          <div className="sign" id="two">j</div>
+          <div className="sign" id="two">e</div>
+          <div className="sign" id="four">c</div>
+          <div className="sign" id="two">t</div>
+          <div className="sign" id="four">s</div>
+        </SignContainer>
+
       </div>
-      <Slider {...sliderSettings }ref={sliderRef} className="relative">
-      <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard
-          title="OTT CLONE"
-          src={DisneyClone}
-          websiteLink={DisneyCloneLink}
-        />
+      <Slider {...sliderSettings} ref={sliderRef} className="relative">
+        <div className="project-card transition-transform transform scale-90 hover:scale-100">
+          <ProjectsCard
+            title="OTT CLONE"
+            src={DisneyClone}
+            websiteLink={DisneyCloneLink}
+          />
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard
-          title="SOCIAL MEDIA CLONE"
-          src={projectOne}
-          websiteLink={YoutubeCloneLink}
-        />
-         </div>
-         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard
-          title="E-commerce Website(Habeeb)"
-          src={projectTwo}
-          websiteLink={HabeebEcomLink}
-        />
+          <ProjectsCard
+            title="SOCIAL MEDIA CLONE"
+            src={projectOne}
+            websiteLink={YoutubeCloneLink}
+          />
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard
-          title="Amazon Clone"
-          src={AmazonClone}
-          websiteLink={AmazonCloneLink}
-        />
+          <ProjectsCard
+            title="E-commerce Website(Habeeb)"
+            src={projectTwo}
+            websiteLink={HabeebEcomLink}
+          />
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard title="NoBroker Clone" src={NobrokerClone} />
+          <ProjectsCard
+            title="Amazon Clone"
+            src={AmazonClone}
+            websiteLink={AmazonCloneLink}
+          />
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard title="Phising Tool" src={PhisingTool} />
+          <ProjectsCard
+            title="Zomato Clone"
+            src={ZomatoClone}
+            websiteLink={ZomatoCloneLink}
+          />
         </div>
         <div className="project-card transition-transform transform scale-90 hover:scale-100">
-        <ProjectsCard
-          title="KeyLogger"
-          src={KeyLogger}
-          // websiteLink={KeyLoggerLink}
-        />
+          <ProjectsCard
+            title="Restaurant Website "
+            src={FoodWebsite}
+            websiteLink={FoodWebsiteLink}
+          />
         </div>
+        <div className="project-card transition-transform transform scale-90 hover:scale-100">
+          <ProjectsCard
+            title="NoBroker Clone"
+            src={NobrokerClone}
+            websiteLink={NobrokerCloneLink}
+          />
+        </div>
+        <div className="project-card transition-transform transform scale-90 hover:scale-100">
+          <ProjectsCard
+            title="Phising Tool"
+            src={PhisingTool}
+            websiteLink={PhisingToolLink}
+          />
+        </div>
+        <div className="project-card transition-transform transform scale-90 hover:scale-100">
+          <ProjectsCard
+            title="KeyLogger Tool"
+            src={KeyLogger}
+            websiteLink={KeyLoggerLink}
+          />
+        </div>
+
       </Slider>
-     
+
     </section>
   );
 }
