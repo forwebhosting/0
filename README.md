@@ -1,1 +1,0 @@
-# thowfick_portfolio_website
