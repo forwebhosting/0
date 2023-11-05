@@ -41,8 +41,7 @@ const Contact = () => {
   }, []);
   // ========== Email Validation end here ================
 
-  const handleSend = (e) => {
-    e.preventDefault();
+  const handleSend = () => {
     if (username === "") {
       setErrMsg("Username is required!");
     } else if (phoneNumber === "") {
@@ -52,14 +51,29 @@ const Contact = () => {
     } else if (!emailValidation(email)) {
       setErrMsg("Give a valid Email!");
     } else if (subject === "") {
-      setErrMsg("Plese give your Subject!");
+      setErrMsg("Please give your Subject!");
     } else if (message === "") {
       setErrMsg("Message is required!");
     } else {
-      setSuccessMsg(
-        `Thank you dear ${username}, Your Messages has been sent Successfully!`
-      );
+      const toEmail = "mdthowfick1info@gmail.com";
+      const emailSubject = `Message from ${username}: ${subject}`;
+      const emailBody = `Name: ${username}\nEmail: ${email}\nPhone: ${phoneNumber}\nSubject: ${subject}\nMessage: ${message}`;
+  
+      // Check if the user is on a mobile device or desktop
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+      if (isMobile) {
+        // If on mobile, provide a button to open the default mail app
+        window.location.href = `mailto:${toEmail}?subject=${encodeURIComponent(
+          emailSubject
+        )}&body=${encodeURIComponent(emailBody)}`;
+      } else {
+        // If on desktop, provide a button to open Gmail in the browser
+        window.open(`https://mail.google.com/?view=cm&fs=1&to=${toEmail}&su=${emailSubject}&body=${encodeURIComponent(emailBody)}`);
+      }
+  
       setErrMsg("");
+      setSuccessMsg(`Thank you dear ${username}, your email option has been opened.`);
       setUsername("");
       setPhoneNumber("");
       setEmail("");
@@ -67,6 +81,7 @@ const Contact = () => {
       setMessage("");
     }
   };
+  
 
   
   return (
