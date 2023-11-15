@@ -27,3 +27,17 @@
 .scrollbar-hide::-webkit-scrollbar{
     display: none;
 }
+
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #ff014f;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    /* mix-blend-mode: difference;  */
+  }
