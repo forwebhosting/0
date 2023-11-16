@@ -1,5 +1,5 @@
 import logo from "./images/logo.png";
-import bannerImg from "./images/tf.png";
+import bannerImg from "./images/bannerImg.png";
 import projectOne from "./images/projects/socialmedia1.jpg";
 import DisneyClone from "./images/projects/disneyClone.png";
 import projectTwo from "./images/projects/ec4.jpg";
