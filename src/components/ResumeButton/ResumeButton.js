@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ImDownload } from 'react-icons/im';
-import { Resumepdf } from "../../assets/index";
+import { Resumepdf } from '../../assets/index';
+import './ResumeButton.css'; // Import the CSS file
 
 const ResumeButton = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const [showMessage, setShowMessage] = useState(false);
 
   const handleButtonClick = () => {
-    // Replace 'your_resume.pdf' with the actual URL or path to your resume file
     const resumeUrl = Resumepdf;
     const a = document.createElement('a');
     a.href = resumeUrl;
@@ -14,10 +15,29 @@ const ResumeButton = () => {
     a.click();
   };
 
+  useEffect(() => {
+    // Show the message after 5 seconds of opening the website
+    const initialTimeout = setTimeout(() => {
+      setShowMessage(true);
+    }, 8000);
+
+    return () => clearTimeout(initialTimeout); // Clear the initial timeout on component unmount
+  }, []);
+
+  useEffect(() => {
+    // Set up a timer to hide the message after 5 seconds and show it again after 5 seconds in a loop
+    const loopTimeout = setTimeout(() => {
+      setShowMessage(false);
+      setTimeout(() => setShowMessage(true), 5000);
+    }, 5000); // Initial 5 seconds + Interval 5 seconds
+
+    return () => clearTimeout(loopTimeout); // Clear the loop timeout on component unmount
+  }, [showMessage]);
+
   const buttonStyle = {
     position: 'fixed',
-    right: '0.5rem', 
-    bottom: '2rem', 
+    right: '0.5rem',
+    bottom: '2rem',
     zIndex: '50',
     display: 'flex',
     flexDirection: 'column',
@@ -25,12 +45,17 @@ const ResumeButton = () => {
   };
 
   const buttonTextStyle = {
-    fontSize: '1rem', 
+    fontSize: '1rem',
     visibility: isHovered ? 'visible' : 'hidden',
   };
 
   return (
     <div style={buttonStyle}>
+      {showMessage && (
+        <div className="message-card">
+          <p>Hey! Download My Resume by clicking the button below.</p>
+        </div>
+      )}
       <button
         onClick={handleButtonClick}
         onMouseEnter={() => setIsHovered(true)}
@@ -38,7 +63,7 @@ const ResumeButton = () => {
         className="bg-[#141518] text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent py-2 px-4 rounded-full shadow-md shadow-designColor animate-bounce"
         title="Click to download My Resume"
       >
-        <ImDownload size={24} /> {/* Adjust the icon size as needed */}
+        <ImDownload size={24} />
       </button>
       <p style={buttonTextStyle}>Download Resume</p>
     </div>

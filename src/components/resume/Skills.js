@@ -84,7 +84,7 @@ const Skills = () => {
                 </motion.span>
               </span>
             </div>
-            <div className="overflow-x-hidden">
+            {/* <div className="overflow-x-hidden">
               <p className="text-sm uppercase font-medium">Redis</p>
               <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
                 <motion.span
@@ -96,7 +96,7 @@ const Skills = () => {
                   <span className="absolute -top-7 right-0">40%</span>
                 </motion.span>
               </span>
-            </div>
+            </div> */}
             {/* <div className="overflow-x-hidden">
               <p className="text-sm uppercase font-medium">BOOTSTRAP</p>
               <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
@@ -415,7 +415,7 @@ const Skills = () => {
               </motion.span>
             </span>
           </div> */}
-            <div className="overflow-x-hidden">
+            {/* <div className="overflow-x-hidden">
               <p className="text-sm uppercase font-medium">Adobe Illustrator</p>
               <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
                 <motion.span
@@ -427,7 +427,7 @@ const Skills = () => {
                   <span className="absolute -top-7 right-0">40%</span>
                 </motion.span>
               </span>
-            </div>
+            </div> */}
             {/* <div className="overflow-x-hidden">
             <p className="text-sm uppercase font-medium">Design</p>
             <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
