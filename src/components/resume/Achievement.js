@@ -62,14 +62,7 @@ const Achievement = () => {
           />
         </div>
       </div> */}
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100%" }}>
-        {/* <img
-          src="https://img.freepik.com/free-vector/coming-soon-black-backgroun-design_1017-37033.jpg?w=2000"
-          alt="Coming Soon"
-          style={{ width: "500px", height: "200px" }}
-        /> */}
-
-      </div>
+      
     </motion.div>
   );
 };

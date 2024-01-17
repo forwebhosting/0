@@ -5,12 +5,13 @@ import Features from "./components/features/Features";
 import Footer from "./components/footer/Footer";
 import FooterBottom from "./components/footer/FooterBottom";
 import Navbar from "./components/navbar/Navbar";
-import ProjectsSlider from "./components/slider/Projects";
+import ProjectsSlider from "./components/ProjectsSilder/Projects";
 import Resume from "./components/resume/Resume";
 import Certificate from "./components/certificate/Certificate";
 import ResumeButton from "./components/ResumeButton/ResumeButton";
 import Loading from './components/loadingPage/loadingPage'; 
 import CustomCursor from './CustomCursor';
+// import Testimonial from "./components/tesimonial/Testimonial";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -47,14 +48,14 @@ function App() {
         <Features />
         <ProjectsSlider />
         <Resume />
-        {/* <Projects /> */}
+     
         
         
         <Certificate />
         {/* <Testimonial /> */}
         <Contact />
         <Footer /> 
-        {/* <BouncyBlockClock /> */}
+        
        
         <FooterBottom />
         {isLoading && <Loading />}

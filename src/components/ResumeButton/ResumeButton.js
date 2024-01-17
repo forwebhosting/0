@@ -1,11 +1,16 @@
+// Import necessary libraries and files
 import React, { useState, useEffect } from 'react';
 import { ImDownload } from 'react-icons/im';
 import { Resumepdf } from '../../assets/index';
 import './ResumeButton.css'; // Import the CSS file
+import resumeButtonData from '../../data/resumeButtonData'; // Import the data file
 
 const ResumeButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+  
+  // Destructure the data from the imported file
+  const { buttonText, messageText, downloadTitle } = resumeButtonData;
 
   const handleButtonClick = () => {
     const resumeUrl = Resumepdf;
@@ -53,7 +58,7 @@ const ResumeButton = () => {
     <div style={buttonStyle}>
       {showMessage && (
         <div className="message-card">
-          <p>Hey! Download My Resume by clicking the button below.</p>
+          <p>{messageText}</p>
         </div>
       )}
       <button
@@ -61,11 +66,11 @@ const ResumeButton = () => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         className="bg-[#141518] text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent py-2 px-4 rounded-full shadow-md shadow-designColor animate-bounce"
-        title="Click to download My Resume"
+        title={downloadTitle}
       >
         <ImDownload size={24} />
       </button>
-      <p style={buttonTextStyle}>Download Resume</p>
+      <p style={buttonTextStyle}>{buttonText}</p>
     </div>
   );
 };

@@ -33,7 +33,7 @@ function SamplePrevArrow(props) {
 const Testimonial = () => {
       const [dotActive, setDocActive] = useState(0);
      const settings = {
-       dots: true,
+       dots: false,
        infinite: true,
        speed: 500,
        slidesToShow: 1,
