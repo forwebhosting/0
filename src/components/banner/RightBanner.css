@@ -1,0 +1,16 @@
+/* RightBanner.css */
+
+.right-banner-image {
+    transition: transform 0.3s ease-out, filter 0.3s ease-out;
+  }
+  
+  .right-banner-image:hover {
+    transform: scale(1.05);
+    filter: grayscale(20%) drop-shadow(0 0 5px #ff014d5d);
+  }
+  
+  .RightBanner-main{
+    overflow: hidden;
+  }
+
+  

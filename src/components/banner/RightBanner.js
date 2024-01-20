@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { bannerImg } from "../../assets/index";
+import './RightBanner.css'; // Import the CSS file
 
 const RightBanner = () => {
   return (
-    <div className="w-full lgl:w-1/2 flex justify-center items-center relative">
+    <div className="w-full lgl:w-1/2 flex justify-center items-center relative RightBanner-main ">
       <img
-        className="w-[300px] h-[400px] lgl:w-[500px] lgl:h-[680px] z-10"
+        className="w-[300px] h-[400px] lgl:w-[500px] lgl:h-[680px] z-10 right-banner-image"
         src={bannerImg}
         alt="bannerImg"
       />
@@ -14,4 +15,4 @@ const RightBanner = () => {
   );
 }
 
-export default RightBanner
+export default RightBanner;

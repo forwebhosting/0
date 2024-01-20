@@ -11,25 +11,36 @@ import Certificate from "./components/certificate/Certificate";
 import ResumeButton from "./components/ResumeButton/ResumeButton";
 import Loading from './components/loadingPage/loadingPage'; 
 import CustomCursor from './CustomCursor';
-// import Testimonial from "./components/tesimonial/Testimonial";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  
+
   useEffect(() => {
-    const onMouseMove = (e) => {
-      const { clientX, clientY } = e;
-      setMousePosition({ x: clientX, y: clientY });
+    const onMouseMove = () => {
+      // Do something with the mouse position if needed
+    };
+
+    const onContextMenu = (e) => {
+      e.preventDefault(); // Prevent the default context menu
+    };
+
+    const onKeyDown = (e) => {
+      if ((e.ctrlKey && e.shiftKey && e.keyCode === 73) || (e.ctrlKey && e.shiftKey && e.keyCode === 67)) {
+        // Disable Ctrl+Shift+I and Ctrl+Shift+C
+        e.preventDefault();
+      }
     };
 
     window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('contextmenu', onContextMenu);
+    window.addEventListener('keydown', onKeyDown);
 
     return () => {
       window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('contextmenu', onContextMenu);
+      window.removeEventListener('keydown', onKeyDown);
     };
-  }, []); // Empty dependency array because onMouseMove is defined inside useEffect
-// eslint-disable-next-line
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  }, []); 
 
   useEffect(() => {
     // Simulate loading for a few seconds
@@ -40,28 +51,20 @@ function App() {
 
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
-        <Navbar />
+      <Navbar />
       <div className="max-w-screen-xl mx-auto">
-      <CustomCursor />
+        <CustomCursor />
         <ResumeButton />
         <Banner />
         <Features />
         <ProjectsSlider />
         <Resume />
-     
-        
-        
         <Certificate />
-        {/* <Testimonial /> */}
         <Contact />
         <Footer /> 
-        
-       
         <FooterBottom />
         {isLoading && <Loading />}
-        
       </div>
-      
     </div>
   );
 }
