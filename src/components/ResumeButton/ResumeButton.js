@@ -1,10 +1,10 @@
 // Import necessary libraries and files
 import React, { useState, useEffect, useCallback } from 'react';
-import { ImDownload } from 'react-icons/im';
+// import { MdDownloading } from 'react-icons/im';
 import { Resumepdf } from '../../assets/index';
 import './ResumeButton.css'; // Import the CSS file
 import resumeButtonData from '../../data/resumeButtonData'; // Import the data file
-
+import { MdDownloading } from "react-icons/md";
 // Import the popup sound file
 import popupSound from './popup-sound.mp3';
 
@@ -92,7 +92,7 @@ const ResumeButton = () => {
         className="bg-[#141518] text-base text-gray-400 tracking-wider uppercase hover:text-white duration-300 hover:border-[1px] hover:border-designColor border-transparent py-2 px-4 rounded-full shadow-md shadow-designColor animate-bounce"
         title={downloadTitle}
       >
-        <ImDownload size={24} />
+        <MdDownloading size={28} />
         <div className="ResumeButton-ripple"></div>
       </button>
       <p style={buttonTextStyle}>{buttonText}</p>

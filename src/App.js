@@ -61,7 +61,7 @@ function App() {
         <Resume />
         <Certificate />
         <Contact />
-        <Footer /> 
+        {/* <Footer />  */}
         <FooterBottom />
         {isLoading && <Loading />}
       </div>

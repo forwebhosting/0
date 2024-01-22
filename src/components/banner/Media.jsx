@@ -65,7 +65,7 @@ const Media = () => {
             <SiFigma />
           </span>
         </div> */}
-        <div className="flex gap-4">
+        <div className="flex gap-4 my-5">
           <span className="bannerIcon">
             <FaReact />
           </span>

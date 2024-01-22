@@ -9,7 +9,7 @@ import {
   PhisingTool,
   KeyLogger,
   ZomatoClone,
-  FoodWebsite,
+
 } from "../assets/projectAssetsData";
 
 const projectData = [
@@ -19,7 +19,7 @@ const projectData = [
     websiteLink: "https://disneyclone-thowfickofficial.netlify.app/",
   },
   {
-    title: "SOCIAL MEDIA CLONE",
+    title: "Youtube Clone",
     src: youtubeClone,
     websiteLink: "https://youtubeclone-thowfickofficial.netlify.app/",
   },
@@ -38,11 +38,7 @@ const projectData = [
     src: ZomatoClone,
     websiteLink: "https://zomatoclone-thowfickofficial.netlify.app/",
   },
-  {
-    title: "Restaurant Website",
-    src: FoodWebsite,
-    websiteLink: "https://habeebfoods.netlify.app/",
-  },
+  
   {
     title: "NoBroker Clone",
     src: NobrokerClone,

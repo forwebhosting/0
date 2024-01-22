@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
-import { FiMenu } from 'react-icons/fi';
+// import { FiMenu } from 'react-icons/fi';
+import { CgMenuRight } from "react-icons/cg";
 import { MdClose } from 'react-icons/md';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 import { logo } from '../../assets/index'; // Assuming logo is correctly exported from assets/index.js
@@ -59,7 +60,8 @@ const Navbar = () => {
           onClick={() => setShowMenu(!showMenu)}
           className="text-xl md:hidden bg-black w-10 h-10 inline-flex items-center justify-center rounded-full text-designColor cursor-pointer"
         >
-          <FiMenu />
+          {/* <FiMenu /> */}
+          <CgMenuRight />
         </span>
         {showMenu && (
           <div className="w-[80%] h-screen overflow-scroll absolute top-0 left-0 bg-gray-900 p-4 scrollbar-hide">
