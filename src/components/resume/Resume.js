@@ -4,6 +4,7 @@ import Education from "./Education";
 import Skills from "./Skills";
 // import Achievement from './Achievement';
 // import Experience from "./Experience"
+import './animation.css'
 
 const Resume = () => {
   const [educationData, setEducationData] = useState(false);
@@ -26,7 +27,7 @@ const Resume = () => {
               // setAchievementData(false);
             }}
             className={`${
-              skillData ? "border-designColor rounded-lg" : "border-transparent"
+              skillData ? "border-designColor rounded-lg resumehover-light" : "border-transparent resumehover-light"
             } resumeLi`}
           >
             Professional Skills
@@ -40,8 +41,8 @@ const Resume = () => {
             }}
             className={`${
               educationData
-                ? "border-designColor rounded-lg"
-                : "border-transparent"
+                ? "border-designColor rounded-lg resumehover-light"
+                : "border-transparent resumehover-light"
             } resumeLi`}
           >
             Education
