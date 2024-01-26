@@ -81,7 +81,7 @@ const ResumeButton = () => {
   return (
     <div style={buttonStyle}>
       {showMessage && (
-        <div className="message-card">
+        <div className=" message-card message-card-light">
           <p>{messageText}</p>
         </div>
       )}

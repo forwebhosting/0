@@ -58,3 +58,38 @@
       opacity: 0;
     }
   }
+
+
+  .message-card-light {
+    /* background: #191b1e; */
+    /* background: -moz-linear-gradient(-45deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%); */
+    background: -webkit-linear-gradient(-45deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%);
+    /* background: linear-gradient(135deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%); */
+    background-repeat: no-repeat;
+    background-position: 0px;
+    background-size: 380%;
+  }
+  
+  .message-card-light:hover {
+    animation: message-card-light 1.3s;
+    -webkit-animation: message-card-light 1.3s;
+  }
+  
+  @keyframes message-card-light {
+    0% {
+      background-position: -860px;
+    }
+    100% {
+      background-position: 0px;
+    }
+  }
+  
+  @-webkit-keyframes message-card-light {
+    0% {
+      background-position: -860px;
+    }
+    100% {
+      background-position: 0px;
+    }
+  }
+  
