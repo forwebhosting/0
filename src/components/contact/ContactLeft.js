@@ -42,7 +42,7 @@ const ContactLeft = () => {
   };
 
   return (
-    <div className=" relative w-full lgl:w-[35%] h-full bg-gradient-to-r from-[#1e2024] to-[#23272b] p-4 lgl:p-8 rounded-lg shadow-shadowOne flex flex-col gap-8 justify-center">
+    <div className=" relative mb-5 w-full lgl:w-[35%] h-full bg-gradient-to-r from-[#1e2024] to-[#23272b] p-4 lgl:p-8 rounded-lg shadow-shadowOne flex flex-col gap-8 justify-center">
      <div className="absolute inset-0 z-0">
         {/* SnowEffect is set to absolute position and takes the full size of the container */}
         <SnowEffect />
