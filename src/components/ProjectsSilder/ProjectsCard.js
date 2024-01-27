@@ -2,7 +2,7 @@
 import React from 'react';
 import { BsGithub } from "react-icons/bs";
 import { FaGlobe } from "react-icons/fa";
-import './slider.css'
+import './ProjectsCard.css'
 
 const CertificateCard = ({ title, des, src, websiteLink  }) => {
   const handleGithubClick = () => {

@@ -1,7 +1,7 @@
 // Skills.js
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
 import {
   developmentSkills,
   programmingSkills,
@@ -9,16 +9,18 @@ import {
   applicationDevelopmentSkills,
   designSkills,
   frontEndDevelopmentSkills,
-} from '../../data/ResumeData/skillData';
+} from "../../data/ResumeData/skillData";
 
 const SkillCategory = ({ title, skills }) => {
   return (
     <div className="w-full lgl:w-1/2">
       <div className="py-12 font-titleFont flex flex-col gap-4">
-        <p className="text-sm text-designColor tracking-[4px] uppercase">Features</p>
+        <p className="text-sm text-designColor tracking-[4px] uppercase">
+          Features
+        </p>
         <h2 className="text-3xl md:text-4xl font-bold">{title}</h2>
       </div>
-      <div className='mt-14 w-full flex flex-col gap-6'>
+      <div className="mt-14 w-full flex flex-col gap-6">
         {skills.map((skill, index) => (
           <div className="overflow-x-hidden" key={index}>
             <p className="text-sm uppercase font-medium">{skill.skill}</p>
@@ -61,7 +63,10 @@ const Skills = () => {
         className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
       >
         <SkillCategory title="Technical Skill" skills={technicalSkills} />
-        <SkillCategory title="Application Development" skills={applicationDevelopmentSkills} />
+        <SkillCategory
+          title="Application Development"
+          skills={applicationDevelopmentSkills}
+        />
       </motion.div>
 
       <motion.div
@@ -70,7 +75,10 @@ const Skills = () => {
         className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
       >
         <SkillCategory title="Design Skill" skills={designSkills} />
-        <SkillCategory title="Front-End Development" skills={frontEndDevelopmentSkills} />
+        <SkillCategory
+          title="Front-End Development"
+          skills={frontEndDevelopmentSkills}
+        />
       </motion.div>
     </div>
   );

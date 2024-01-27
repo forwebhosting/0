@@ -1,32 +1,37 @@
-import React, { useState } from 'react';
-import { Link } from 'react-scroll';
+import React, { useState } from "react";
+import { Link } from "react-scroll";
 // import { FiMenu } from 'react-icons/fi';
 import { CgMenuRight } from "react-icons/cg";
-import { MdClose } from 'react-icons/md';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import { logo } from '../../assets/index'; // Assuming logo is correctly exported from assets/index.js
-import { navLinksdata } from '../../constants';
+import { MdClose } from "react-icons/md";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaLinkedinIn,
+  FaInstagram,
+} from "react-icons/fa";
+import { logo } from "../../assets/index"; // Assuming logo is correctly exported from assets/index.js
+import { navLinksdata } from "../../constants";
 
 const Navbar = () => {
-  const facebookLink = 'https://www.facebook.com/thowfickofficial';
-  const twitterLink = 'https://twitter.com/thowfickofficia';
-  const linkedinLink = 'https://www.linkedin.com/in/thowfickofficial/';
-  const instagrameLink = 'https://www.instagram.com/thowfick_official/';
+  const facebookLink = "https://www.facebook.com/thowfickofficial";
+  const twitterLink = "https://twitter.com/thowfickofficia";
+  const linkedinLink = "https://www.linkedin.com/in/thowfickofficial/";
+  const instagrameLink = "https://www.instagram.com/thowfick_official/";
 
   const handleFacebookClick = () => {
-    window.open(facebookLink, '_blank');
+    window.open(facebookLink, "_blank");
   };
 
   const handleTwitterClick = () => {
-    window.open(twitterLink, '_blank');
+    window.open(twitterLink, "_blank");
   };
 
   const handleLinkedInClick = () => {
-    window.open(linkedinLink, '_blank');
+    window.open(linkedinLink, "_blank");
   };
 
   const handleInstagramClick = () => {
-    window.open(instagrameLink, '_blank');
+    window.open(instagrameLink, "_blank");
   };
 
   const [showMenu, setShowMenu] = useState(false);
@@ -69,7 +74,16 @@ const Navbar = () => {
               <div>
                 <img className="w-32" src={logo} alt="logo" />
                 <p className="text-sm text-gray-400 mt-2">
-                  "With a passion for cybersecurity, ethical hacking, and full stack development, I'm Mohamed Thowfick—an aspiring IT professional. Throughout my self-learning journey, My career goals revolve around exploring the extreme of technology. I aspire to make a meaningful impact in the IT and cybersecurity industry by ensuring robust security measures and staying ahead of emerging threats. Let's connect to explore how my skills and passion can contribute to the advancement of cybersecurity and the IT industry. Seeking growth opportunities and ready to make a positive impact!"
+                  "With a passion for cybersecurity, ethical hacking, and full
+                  stack development, I'm Mohamed Thowfick—an aspiring IT
+                  professional. Throughout my self-learning journey, My career
+                  goals revolve around exploring the extreme of technology. I
+                  aspire to make a meaningful impact in the IT and cybersecurity
+                  industry by ensuring robust security measures and staying
+                  ahead of emerging threats. Let's connect to explore how my
+                  skills and passion can contribute to the advancement of
+                  cybersecurity and the IT industry. Seeking growth
+                  opportunities and ready to make a positive impact!"
                 </p>
               </div>
               <ul className="flex flex-col gap-4">
@@ -93,7 +107,9 @@ const Navbar = () => {
                 ))}
               </ul>
               <div className="flex flex-col gap-4">
-                <h2 className="text-base uppercase font-titleFont mb-4">Find me in</h2>
+                <h2 className="text-base uppercase font-titleFont mb-4">
+                  Find me in
+                </h2>
                 <div className="flex gap-4">
                   <span className="bannerIcon" onClick={handleFacebookClick}>
                     <FaFacebookF />

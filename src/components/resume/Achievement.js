@@ -62,7 +62,6 @@ const Achievement = () => {
           />
         </div>
       </div> */}
-      
     </motion.div>
   );
 };

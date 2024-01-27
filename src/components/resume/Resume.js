@@ -4,7 +4,7 @@ import Education from "./Education";
 import Skills from "./Skills";
 // import Achievement from './Achievement';
 // import Experience from "./Experience"
-import './animation.css'
+import "./Resume.css";
 
 const Resume = () => {
   const [educationData, setEducationData] = useState(false);
@@ -12,7 +12,10 @@ const Resume = () => {
   // const [experienceData, setExperienceData] = useState(false);
   // const [achievementData, setAchievementData] = useState(false);
   return (
-    <section id="resume" className="w-full py-20 border-b-[1px] border-b-black ">
+    <section
+      id="resume"
+      className="w-full py-20 border-b-[1px] border-b-black "
+    >
       <div className="flex justify-center items-center text-center">
         <Title title="" des="My Resume" />
       </div>
@@ -27,7 +30,9 @@ const Resume = () => {
               // setAchievementData(false);
             }}
             className={`${
-              skillData ? "border-designColor rounded-lg resumehover-light" : "border-transparent resumehover-light"
+              skillData
+                ? "border-designColor rounded-lg resumehover-light"
+                : "border-transparent resumehover-light"
             } resumeLi`}
           >
             Professional Skills

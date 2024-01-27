@@ -1,12 +1,11 @@
 /* FooterBottom.css */
 
 .hover-text {
-    color: inherit;
-    transition: color 0.3s ease;
-  }
-  
-  .hover-text:hover {
-    color: #ff014f;
-    cursor: pointer;
-  }
-  
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+.hover-text:hover {
+  color: #ff014f;
+  cursor: pointer;
+}

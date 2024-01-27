@@ -1,13 +1,11 @@
-import DisneyClone from "./images/projects/disneyClone.png";
-import habeebEcom from "./images/projects/ec4.jpg";
-import FoodWebsite from "./images/projects/FoodWebsite.jpg";
-import AmazonClone from "./images/projects/amazon2.jpg";
+import DisneyClone from "./images/projects/disneyClone.jpg";
+import habeebEcom from "./images/projects/habeebEcom.png";
+import AmazonClone from "./images/projects/amazonClone.jpg";
 import ZomatoClone from "./images/projects/ZomatoClone.jpg";
 import NobrokerClone from "./images/projects/nobroker.png";
-import PhisingTool from "./images/projects/PhisingTool.jpg";
-import KeyLogger from "./images/projects/KeyLogger.jpg";
-
-import youtubeClone from "./images/projects/socialmedia1.jpg";
+import PhisingTool from "./images/projects/PhisingTool.png";
+import KeyLogger from "./images/projects/keylogger.svg";
+import youtubeClone from "./images/projects/youtubeClone.jpeg";
 
 export {
   DisneyClone,
@@ -18,5 +16,4 @@ export {
   KeyLogger,
   youtubeClone,
   habeebEcom,
-  FoodWebsite,
 };

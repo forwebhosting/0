@@ -1,17 +1,15 @@
 /* Footer.css */
 
 @keyframes spaceDotBgAnimation {
-    0% {
-      background-position: 0 0;
-    }
-    100% {
-      background-position: 100% 100%;
-    }
+  0% {
+    background-position: 0 0;
   }
-  
-  .footer-container {
-    
-    background-size: 400% 400%;
-    animation: spaceDotBgAnimation 10s infinite;
+  100% {
+    background-position: 100% 100%;
   }
-  
+}
+
+.footer-container {
+  background-size: 400% 400%;
+  animation: spaceDotBgAnimation 10s infinite;
+}

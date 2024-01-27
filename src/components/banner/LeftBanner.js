@@ -1,13 +1,13 @@
 // Import necessary libraries and files
-import React from 'react';
-import { useTypewriter, Cursor } from 'react-simple-typewriter';
-import Media from './Media';
-import leftBannerData from '../../data/leftBannerData'; 
+import React from "react";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
+import Media from "./Media";
+import leftBannerData from "../../data/leftBannerData";
 
 const LeftBanner = () => {
   // Destructure the data from the imported file
   const { welcomeText, introduction } = leftBannerData;
-  
+
   const [text] = useTypewriter({
     words: ["Cyber Security", "Full Stack Developer.", "Penetration Tester."],
     loop: true,
@@ -21,7 +21,8 @@ const LeftBanner = () => {
       <div className="flex flex-col gap-5">
         <h4 className="text-lg font-normal">{welcomeText}</h4>
         <h1 className="text-6xl font-bold text-white">
-          Hi, I'm <span className="text-designColor capitalize">Mohamed Thowfick</span>
+          Hi, I'm{" "}
+          <span className="text-designColor capitalize">Mohamed Thowfick</span>
         </h1>
         <h2 className="text-4xl font-bold text-white">
           a <span>{text}</span>

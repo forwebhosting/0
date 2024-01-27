@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CertificateCard from "./CertificateCard";
 import certificateData from "../../data/certificateData";
-import "./certificate.css"; 
+import "./certificate.css";
 
 const Certificate = () => {
   const sliderRef = useRef(null);
@@ -54,9 +54,8 @@ const Certificate = () => {
       className="w-full py-20 border-b-[1px] border-b-black"
     >
       <div className="flex justify-center items-center text-center">
-        
         <div className="Certificate-heading-Container w-full ">
-        <div className="Certificate-heading" id="Certificate-heading-one">
+          <div className="Certificate-heading" id="Certificate-heading-one">
             C
           </div>
           <div className="Certificate-heading" id="Certificate-heading-two">

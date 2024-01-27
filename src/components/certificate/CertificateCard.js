@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 // import { FaEye } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 
@@ -36,6 +36,6 @@ const CertificateCard = ({ title, des, src, link, onGithubClick }) => {
       </div>
     </div>
   );
-}
+};
 
 export default CertificateCard;

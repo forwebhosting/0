@@ -1,5 +1,5 @@
-import React from 'react';
-import './FooterBottom.css';
+import React from "react";
+import "./FooterBottom.css";
 
 const FooterBottom = () => {
   // Get the current year dynamically
