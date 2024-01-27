@@ -19,7 +19,7 @@ const Projects = () => {
     slidesToScroll: 1,
     centerMode: true, // Enable center mode
     centerPadding: "60px", // Adjust the margin as needed
-    draggable: true, 
+    draggable: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -51,7 +51,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full py-20 border-b-[1px] border-b-black"
+      className="w-full py-20 border-b-[1px] border-b-black "
     >
       <div className="flex justify-center items-center text-center">
         <div className="Project-heading-Container w-full ">

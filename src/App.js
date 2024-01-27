@@ -11,6 +11,7 @@ import Certificate from "./components/certificate/Certificate";
 import ResumeButton from "./components/ResumeButton/ResumeButton";
 import Loading from './components/loadingPage/loadingPage'; 
 import CustomCursor from './CustomCursor';
+import StarryMagicCursor from './StarryMagicCursor';
 import AnimatedCircles from './components/BackRound/AnimatedCircles'
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +52,7 @@ function App() {
 
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
-      
+      <StarryMagicCursor />
      <AnimatedCircles />
       <Navbar />
       <div className="max-w-screen-xl mx-auto">
