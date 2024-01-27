@@ -7,7 +7,7 @@ const StarryMagicCursor = () => {
   const [width, setWidth] = useState(window.innerWidth);
   const [height, setHeight] = useState(window.innerHeight);
   const canvasRef = useRef(null);
-  let stars = []; // Change 'const' to 'let'
+  const starsRef = useRef([]); // Use useRef for the stars variable
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -35,7 +35,7 @@ const StarryMagicCursor = () => {
       const randomOffsetX = (Math.random() - 0.5) * 100;
       const randomOffsetY = (Math.random() - 0.5) * 100;
 
-      stars.push(new Star(e.clientX, e.clientY, mouseVelocityX + randomOffsetX, mouseVelocityY + randomOffsetY));
+      starsRef.current.push(new Star(e.clientX, e.clientY, mouseVelocityX + randomOffsetX, mouseVelocityY + randomOffsetY));
     };
 
     canvas.addEventListener('mousemove', addStar);
@@ -86,9 +86,9 @@ const StarryMagicCursor = () => {
 
       ctx.clearRect(0, 0, width, height);
 
-      stars.forEach((star) => star.update(deltaTime));
-      stars.forEach((star) => star.draw());
-      stars = stars.filter((star) => star.alpha > 0 && star.y < height && star.x > 0 && star.x < width);
+      starsRef.current.forEach((star) => star.update(deltaTime));
+      starsRef.current.forEach((star) => star.draw());
+      starsRef.current = starsRef.current.filter((star) => star.alpha > 0 && star.y < height && star.x > 0 && star.x < width);
 
       requestAnimationFrame(update);
     };
@@ -99,7 +99,7 @@ const StarryMagicCursor = () => {
       window.removeEventListener('resize', handleResize);
       canvas.removeEventListener('mousemove', addStar);
     };
-  }, [width, height, stars]);
+  }, [width, height]);
 
   return <canvas ref={canvasRef} id="starry-magic-cursor-canvas" width={width} height={height}></canvas>;
 };
