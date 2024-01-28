@@ -62,7 +62,7 @@ const Skills = () => {
         animate={{ opacity: 1, transition: { duration: 0.5 } }}
         className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
       >
-        <SkillCategory title="Technical Skill" skills={technicalSkills} />
+        <SkillCategory title="Design Skill" skills={designSkills} />
         <SkillCategory
           title="Application Development"
           skills={applicationDevelopmentSkills}
@@ -74,7 +74,8 @@ const Skills = () => {
         animate={{ opacity: 1, transition: { duration: 0.5 } }}
         className="w-full flex flex-col lgl:flex-row gap-10 lgl:gap-20"
       >
-        <SkillCategory title="Design Skill" skills={designSkills} />
+        <SkillCategory title="Technical Skill" skills={technicalSkills} />
+
         <SkillCategory
           title="Front-End Development"
           skills={frontEndDevelopmentSkills}

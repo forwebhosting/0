@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 // import Title from '../layouts/Title';
 import ContactLeft from "./ContactLeft";
 import "./contact.css"; // Import the external CSS file
@@ -12,7 +12,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
-
+  const contactRef = useRef(null);
   // ========== Email Validation start here ==============
   const emailValidation = () => {
     return String(email)
@@ -22,24 +22,45 @@ const Contact = () => {
   // ========== Email Validation end here ================
 
   useEffect(() => {
-    // Add the JavaScript code here
-    // ... JavaScript code ...
     const spans = document.querySelectorAll(".word span");
 
-    spans.forEach((span, idx) => {
-      span.addEventListener("click", (e) => {
-        e.target.classList.add("active");
-      });
-      span.addEventListener("animationend", (e) => {
-        e.target.classList.remove("active");
-      });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            spans.forEach((span, idx) => {
+              span.addEventListener("click", (e) => {
+                e.target.classList.add("active");
+              });
+              span.addEventListener("animationend", (e) => {
+                e.target.classList.remove("active");
+              });
 
-      // Initial animation
-      setTimeout(() => {
-        span.classList.add("active");
-      }, 750 * (idx + 1));
-    });
+              setTimeout(() => {
+                span.classList.add("active");
+              }, 750 * (idx + 1));
+            });
+
+            // Once the animations are triggered, disconnect the observer
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1 } // Adjust the threshold as needed
+    );
+
+    if (contactRef.current) {
+      observer.observe(contactRef.current);
+    }
+
+    return () => {
+      // Cleanup: disconnect the observer when the component unmounts
+      if (contactRef.current) {
+        observer.disconnect();
+      }
+    };
   }, []);
+
   // ========== Email Validation end here ================
 
   const handleSend = () => {
@@ -92,6 +113,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
+      ref={contactRef}
       className="w-full py-20 border-b-[1px] border-b-black relative"
     >
       <div className="flex justify-center items-center text-center">

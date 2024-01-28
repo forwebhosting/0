@@ -2,7 +2,7 @@
     position: fixed;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Adjust z-index to bring the snowfall to the front */
+    z-index: 1; 
   }
   
   .snowSvg {

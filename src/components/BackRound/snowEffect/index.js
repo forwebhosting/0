@@ -1,10 +1,14 @@
-import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import './snowEffect.css';
+import React, { useEffect, useRef } from "react";
+import gsap from "gsap";
+import "./snowEffect.css";
 
 const SnowFlake = () => (
   <defs>
-    <path className="snowFlake" d="M14.75,7.69c0,4.14-3.85,8.56-7.5,7.5C3.28,14,0,10.84,0,6.7S3.3,1.42,7.25.19,14.75,3.55,14.75,7.69Z" fill="#ff014f" />
+    <path
+      className="snowFlake"
+      d="M14.75,7.69c0,4.14-3.85,8.56-7.5,7.5C3.28,14,0,10.84,0,6.7S3.3,1.42,7.25.19,14.75,3.55,14.75,7.69Z"
+      fill="rgba(255, 1, 79, 0.5)"
+    />
   </defs>
 );
 
@@ -13,7 +17,7 @@ const Snowfall = () => {
 
   useEffect(() => {
     const snowMainSVG = snowContainerRef.current;
-    const snowFlake = snowMainSVG.querySelector('.snowFlake');
+    const snowFlake = snowMainSVG.querySelector(".snowFlake");
     const mainTl = gsap.timeline();
 
     gsap.set(snowMainSVG, {
@@ -28,7 +32,7 @@ const Snowfall = () => {
         y: gsap.utils.random(-300, 900),
       };
       gsap.set(clone, {
-        transformOrigin: '50% 50%',
+        transformOrigin: "50% 50%",
         scale: 0.2,
         x: pos.x,
         y: pos.y,
@@ -38,35 +42,39 @@ const Snowfall = () => {
         repeat: -1,
         repeatDelay: gsap.utils.random(1, 3),
         defaults: {
-          ease: 'linear',
+          ease: "linear",
         },
       });
       tl.to(clone, {
         scale: gsap.utils.random(0.1, 0.51),
-        ease: 'sine.in',
+        ease: "sine.in",
         duration: 1,
       })
         .to(
           clone,
           {
-            ease: 'sine.inOut',
+            ease: "sine.inOut",
             x: pos.x - distance,
             y: pos.y + distance,
             duration: 2,
           },
           0
         )
-        .to(clone, {
-          ease: 'sine',
-          scale: 0,
-          duration: 1,
-        }, 1)
         .to(
           clone,
           {
-            ease: 'sine.inOut',
+            ease: "sine",
+            scale: 0,
+            duration: 1,
+          },
+          1
+        )
+        .to(
+          clone,
+          {
+            ease: "sine.inOut",
             rotation: `-=${gsap.utils.random(-23, 23)}`,
-            transformOrigin: '200% 50%',
+            transformOrigin: "200% 50%",
             duration: 2,
           },
           0
@@ -87,7 +95,13 @@ const Snowfall = () => {
   }, []);
 
   return (
-    <svg className="snowSvg" id="snowMainSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" ref={snowContainerRef}>
+    <svg
+      className="snowSvg"
+      id="snowMainSVG"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 800 600"
+      ref={snowContainerRef}
+    >
       <SnowFlake />
       <g id="snowContainer" fill="#FFF" />
     </svg>

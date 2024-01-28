@@ -13,6 +13,7 @@ import Loading from "./components/loadingPage/loadingPage";
 import CircleCursor from "./components/CursorAnimation/CircleCursor/CircleCursor";
 import StarryMagicCursor from "./components/CursorAnimation/StarryMagicCursor/StarryMagicCursor";
 import AnimatedCircles from "./components/BackRound/AnimatedCircles/AnimatedCircles";
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,13 +54,16 @@ function App() {
     }, 2000); // Adjust the time as needed
   }, []);
 
+  // Check if the device is not a mobile or tablet
+  const isDesktop = window.innerWidth >= 768; // You may need to adjust this threshold
+
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
-      <StarryMagicCursor />
+      {isDesktop && <StarryMagicCursor />}
       <AnimatedCircles />
       <Navbar />
       <div className="max-w-screen-xl mx-auto">
-        <CircleCursor />
+        {isDesktop && <CircleCursor />}
         <ResumeButton />
 
         <Banner />
@@ -69,7 +73,7 @@ function App() {
         <Resume />
         <Certificate />
         <Contact />
-        {/* <Footer />  */}
+        {/* <Footer /> */}
         <FooterBottom />
         {isLoading && <Loading />}
       </div>
