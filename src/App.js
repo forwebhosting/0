@@ -13,6 +13,7 @@ import Loading from "./components/loadingPage/loadingPage";
 import CircleCursor from "./components/CursorAnimation/CircleCursor/CircleCursor";
 import StarryMagicCursor from "./components/CursorAnimation/StarryMagicCursor/StarryMagicCursor";
 import AnimatedCircles from "./components/BackRound/AnimatedCircles/AnimatedCircles";
+import UserInfo from "./components/userInfo/userInfo";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -74,6 +75,7 @@ function App() {
         <Certificate />
         <Contact />
         {/* <Footer /> */}
+        <UserInfo />
         <FooterBottom />
         {isLoading && <Loading />}
       </div>
