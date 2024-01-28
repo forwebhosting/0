@@ -23,7 +23,7 @@ const Contact = () => {
 
   useEffect(() => {
     const spans = document.querySelectorAll(".word span");
-
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -35,32 +35,30 @@ const Contact = () => {
               span.addEventListener("animationend", (e) => {
                 e.target.classList.remove("active");
               });
-
+  
               setTimeout(() => {
                 span.classList.add("active");
               }, 750 * (idx + 1));
             });
-
+  
             // Once the animations are triggered, disconnect the observer
             observer.disconnect();
           }
         });
       },
-      { threshold: 0.1 } // Adjust the threshold as needed
+      { threshold: 0.1 }
     );
-
+  
     if (contactRef.current) {
       observer.observe(contactRef.current);
     }
-
+  
     return () => {
       // Cleanup: disconnect the observer when the component unmounts
-      if (contactRef.current) {
-        observer.disconnect();
-      }
+      observer.disconnect();
     };
-  }, []);
-
+  }, [contactRef]);
+  
   // ========== Email Validation end here ================
 
   const handleSend = () => {
