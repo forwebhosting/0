@@ -63,8 +63,8 @@ const UserInfo = () => {
       {error && <p>{error}</p>}
       {!loading && !error && (
         <div className="text-center text-gray-500 text-base flex flex-wrap justify-center ">
-          <p className="mr-4">User IP: {publicIP}</p>
-          <p className="mr-4">User Location: {userLocation}</p>
+          <p className="mr-4">Your IP: {publicIP}</p>
+          <p className="mr-4">Your Location: {userLocation}</p>
           <p className="mr-4">
             Page render time: {renderTime.toFixed(2)} seconds
           </p>

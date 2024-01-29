@@ -1,3 +1,5 @@
+// CustomCursor.js
+
 import React, { useEffect, useState } from "react";
 import "./CircleCursor.css";
 
@@ -11,7 +13,17 @@ const CustomCursor = () => {
     setMousePosition({ x: clientX, y: clientY });
 
     const target = e.target;
-    setHovered(target.matches(".clickable"));
+    const isClickable = target.matches(".clickable");
+    const isInputOrTextarea = target.tagName.toLowerCase() === "input" || target.tagName.toLowerCase() === "textarea" || target.tagName.toLowerCase() === "select";
+    
+    setHovered(isClickable && !isInputOrTextarea);
+
+    // Add or remove a class to the body based on whether the cursor is over input, textarea, or select
+    if (isInputOrTextarea) {
+      document.body.classList.add("cursor-over-input");
+    } else {
+      document.body.classList.remove("cursor-over-input");
+    }
   };
 
   const onMouseDown = () => {

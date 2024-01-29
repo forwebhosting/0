@@ -63,3 +63,11 @@
     display: none;
   }
 }
+
+/* CircleCursor.css */
+
+/* Hide the custom cursor when it's over input, textarea, or select */
+.cursor-over-input .custom-cursor {
+  display: none !important;
+}
+
