@@ -19,7 +19,7 @@ const Media = () => {
   const instagrameLink = "https://www.instagram.com/thowfick_official/";
 
   return (
-    <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between">
+    <div className="flex flex-col xl:flex-row gap-6 lgl:gap-0 justify-between relative">
       <div>
         <h2 className="text-base uppercase font-titleFont mb-4">Find me on</h2>
         <div className="flex gap-4">
