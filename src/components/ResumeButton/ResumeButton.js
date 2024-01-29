@@ -1,21 +1,19 @@
-// Import necessary libraries and files
 import React, { useState, useEffect, useCallback } from 'react';
-// import { MdDownloading } from 'react-icons/im';
 import { Resumepdf } from '../../assets/index';
-import './ResumeButton.css'; // Import the CSS file
-import resumeButtonData from '../../data/resumeButtonData'; // Import the data file
+import './ResumeButton.css';
+import resumeButtonData from '../../data/resumeButtonData';
 import { MdDownloading } from "react-icons/md";
-// Import the popup sound file
 import popupSound from './popup-sound.mp3';
 
 const ResumeButton = () => {
   const [isHovered, setIsHovered] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  // Destructure the data from the imported file
   const { buttonText, messageText, downloadTitle } = resumeButtonData;
 
   const handleButtonClick = () => {
+    playPopupSound(); // Play the popup sound when the button is clicked
+
     const resumeUrl = Resumepdf;
     const a = document.createElement('a');
     a.href = resumeUrl;
@@ -23,37 +21,49 @@ const ResumeButton = () => {
     a.click();
   };
 
-  // Play the popup sound if the tab is visible and the message is shown
   const playPopupSound = useCallback(() => {
     if (document.visibilityState === 'visible' && showMessage) {
       const audio = new Audio(popupSound);
-      audio.play();
+
+      const playAudio = () => {
+        audio.play()
+          .then(() => {
+            // Successfully started playing
+          })
+          .catch(error => {
+            console.error('Failed to play audio:', error);
+          });
+      };
+
+      if (audio.readyState >= 2) {
+        // If the audio is already loaded, play it
+        playAudio();
+      } else {
+        // If the audio is not loaded, request user interaction for audio playback
+        document.addEventListener('click', playAudio, { once: true });
+      }
     }
   }, [showMessage]);
 
   useEffect(() => {
-    // Show the message after 5 seconds of opening the website
     const initialTimeout = setTimeout(() => {
       setShowMessage(true);
-      // Play the popup sound when the message appears
       playPopupSound();
     }, 8000);
 
-    return () => clearTimeout(initialTimeout); // Clear the initial timeout on component unmount
+    return () => clearTimeout(initialTimeout);
   }, [playPopupSound]);
 
   useEffect(() => {
-    // Set up a timer to hide the message after 5 seconds and show it again after 5 seconds in a loop
     const loopTimeout = setTimeout(() => {
       setShowMessage(false);
       setTimeout(() => {
         setShowMessage(true);
-        // Play the popup sound when the message reappears
         playPopupSound();
       }, 5000);
-    }, 5000); // Initial 5 seconds + Interval 5 seconds
+    }, 5000);
 
-    return () => clearTimeout(loopTimeout); // Clear the loop timeout on component unmount
+    return () => clearTimeout(loopTimeout);
   }, [showMessage, playPopupSound]);
 
   const buttonStyle = {
@@ -71,10 +81,8 @@ const ResumeButton = () => {
     visibility: isHovered ? 'visible' : 'hidden',
   };
 
-  // Listen for visibility change to play/pause the sound accordingly
   useEffect(() => {
     document.addEventListener('visibilitychange', playPopupSound);
-
     return () => document.removeEventListener('visibilitychange', playPopupSound);
   }, [showMessage, playPopupSound]);
 
