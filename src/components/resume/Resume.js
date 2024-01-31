@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Title from "../layouts/Title";
+import React, { useState, useEffect } from "react";
+// import Title from "../layouts/Title";
 import Education from "./Education";
 import Skills from "./Skills";
 // import Achievement from './Achievement';
@@ -11,13 +11,34 @@ const Resume = () => {
   const [skillData, setSkillData] = useState(true);
   // const [experienceData, setExperienceData] = useState(false);
   // const [achievementData, setAchievementData] = useState(false);
+
+  useEffect(() => {
+    const animateTitle = () => {
+      const title = document.querySelector('.myresume-title');
+      title.classList.remove('three');
+      void title.offsetWidth; // Trigger a reflow to restart the animation
+      title.classList.add('three');
+    };
+
+    // Trigger the animation every 2 seconds
+    const animationInterval = setInterval(animateTitle, 4000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(animationInterval);
+  }, []);
+
   return (
     <section
       id="resume"
       className="w-full py-20 border-b-[1px] border-b-black "
     >
       <div className="flex justify-center items-center text-center">
-        <Title title="" des="My Resume" />
+        {/* <Title title="" des="My Resume" /> */}
+        <div className="myresume-title-container">
+      <div className="myresume-title three">
+        <span>M</span><span>y</span>&nbsp;<span>R</span><span>e</span><span>s</span><span>u</span><span>m</span><span>e</span>
+      </div>
+    </div>
       </div>
       <div>
         {/* <ul className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4"> */}

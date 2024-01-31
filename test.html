@@ -1,38 +1,11 @@
-.resumehover-light {
-    background: #191b1e;
-    background: -moz-linear-gradient(-45deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%);
-    background: -webkit-linear-gradient(-45deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%);
-    background: linear-gradient(135deg, #191b1e 0%, #191b1e 5%, #191b1e 5%, #191b1e 42%, #ff014f 49%, #ff014f 53%, #191b1e 59%, #191b1e 100%);
-    background-repeat: no-repeat;
-    background-position: 0px;
-    background-size: 280%;
-  }
-  
-  .resumehover-light:hover {
-    animation: resumehover-light 1.3s;
-    -webkit-animation: resumehover-light 1.3s;
-  }
-  
-  @keyframes resumehover-light {
-    0% {
-      background-position: -960px;
-    }
-    100% {
-      background-position: 0px;
-    }
-  }
-  
-  @-webkit-keyframes resumehover-light {
-    0% {
-      background-position: -960px;
-    }
-    100% {
-      background-position: 0px;
-    }
-  }
-  
-
-  @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Text</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i');
 
        
 
@@ -40,11 +13,11 @@
         .myresume-title-container {
             width: 100%;
             margin: auto;
-            font-weight: 700;
-           
+            font-weight: 900;
+            text-transform: uppercase;
             text-align: center;
-            padding: 0 0 20px;
-            font-family: 'Montserrat', sans-serif;
+            padding: 0 0 200px;
+            font-family: 'Lato', sans-serif;
             font-size: 14px;
             color: #c4cfde;
             word-wrap: break-word;
@@ -123,7 +96,7 @@
             color: #c4cfde;
             opacity: 0;
             transform: translate(-300px, 0) scale(0);
-            animation: sideSlide .6s forwards ; /* Infinite loop added */
+            animation: sideSlide .5s forwards ; /* Infinite loop added */
         }
 
         @keyframes sideSlide {
@@ -148,3 +121,15 @@
                 color: #c4cfde;
             }
         }
+    </style>
+</head>
+<body>
+
+<div class="myresume-title-container">
+    <div class="myresume-title three">
+        <span>M</span><span>y</span>&nbsp;<span>R</span><span>e</span><span>s</span><span>u</span><span>m</span><span>e</span>
+    </div>
+</div>
+
+</body>
+</html>
