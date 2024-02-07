@@ -54,6 +54,7 @@ const ContactLeft = () => {
         <SnowEffect />
       </div>
       <img
+        loading="lazy"
         className="relative w-full h-64 object-fit rounded-lg mb-2"
         src={contactImg}
         alt="contactImg"

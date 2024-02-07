@@ -7,6 +7,7 @@ const CertificateCard = ({ title, des, src, link, onGithubClick }) => {
     <div className="w-full p-4 xl:px-12 h-auto xl:py-10 rounded-lg shadow-shadowOne flex flex-col bg-gradient-to-r from-bodyColor to-[#202327] group certificatesliderhover-light">
       <div className="w-full h-[80%] overflow-hidden rounded-lg">
         <img
+          loading="lazy"
           className="w-full h-60 object-cover group-hover:scale-110 duration-300 cursor-pointer"
           src={src}
           alt="src"

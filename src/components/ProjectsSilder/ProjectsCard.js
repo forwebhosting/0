@@ -1,10 +1,9 @@
-
-import React from 'react';
+import React from "react";
 import { BsGithub } from "react-icons/bs";
 import { FaGlobe } from "react-icons/fa";
-import './ProjectsCard.css'
+import "./ProjectsCard.css";
 
-const CertificateCard = ({ title, des, src, websiteLink  }) => {
+const CertificateCard = ({ title, des, src, websiteLink }) => {
   const handleGithubClick = () => {
     alert("The Github link will be updated soon");
   };
@@ -16,12 +15,12 @@ const CertificateCard = ({ title, des, src, websiteLink  }) => {
       alert("The Website link will be updated soon");
     }
   };
-  
 
   return (
     <div className="w-full p-4 xl:px-12 h-auto xl:py-10 rounded-lg projectsliderhover-light shadow-shadowOne flex flex-col bg-gradient-to-r from-bodyColor to-[#202327] group ">
       <div className="w-full h-[80%] overflow-hidden rounded-lg">
         <img
+          loading="lazy"
           className="w-full h-60 object-cover group-hover:scale-110 duration-300 cursor-pointer"
           src={src}
           alt="src"
@@ -34,10 +33,16 @@ const CertificateCard = ({ title, des, src, websiteLink  }) => {
               {title}
             </h3>
             <div className="flex gap-2">
-              <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer" onClick={handleGithubClick}>
+              <span
+                className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer"
+                onClick={handleGithubClick}
+              >
                 <BsGithub />
               </span>
-              <span className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer" onClick={() => handleGlobeClick(websiteLink)}>
+              <span
+                className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer"
+                onClick={() => handleGlobeClick(websiteLink)}
+              >
                 <FaGlobe />
               </span>
             </div>
@@ -49,6 +54,6 @@ const CertificateCard = ({ title, des, src, websiteLink  }) => {
       </div>
     </div>
   );
-}
+};
 
 export default CertificateCard;
