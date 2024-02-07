@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Banner from "./components/banner/Banner";
 import Contact from "./components/contact/Contact";
 import Features from "./components/features/Features";
-// import Footer from "./components/footer/Footer";
 import FooterBottom from "./components/footer/FooterBottom";
 import Navbar from "./components/navbar/Navbar";
 import ProjectsSlider from "./components/ProjectsSilder/Projects";
@@ -17,6 +16,7 @@ import UserInfo from "./components/userInfo/userInfo";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isHighPerformance, setIsHighPerformance] = useState(false);
 
   useEffect(() => {
     const onMouseMove = () => {
@@ -49,6 +49,44 @@ function App() {
   }, []);
 
   useEffect(() => {
+    const checkDevicePerformance = async () => {
+      // Enhanced logic to determine high-performance device
+      const isFastConnection =
+        navigator.connection &&
+        (navigator.connection.saveData || navigator.connection.downlink >= 1.5);
+
+      const isPowerfulCPU =
+        navigator.hardwareConcurrency &&
+        navigator.hardwareConcurrency >= 4;
+
+      const isSufficientRAM =
+        navigator.deviceMemory && navigator.deviceMemory >= 4;
+
+      const hasDedicatedGPU =
+        navigator.userAgent &&
+        (navigator.userAgent.includes("NVIDIA") ||
+          navigator.userAgent.includes("AMD") ||
+          navigator.userAgent.includes("Intel"));
+
+      let isSufficientAvailableMemory = true;
+
+      if (window.performance && window.performance.memory) {
+        const { totalJSHeapSize } = window.performance.memory;
+        isSufficientAvailableMemory = totalJSHeapSize >= 500000000; // 500 MB in bytes
+      }
+
+      const isHighPerformanceDevice =
+        isFastConnection &&
+        isPowerfulCPU &&
+        isSufficientRAM &&
+        hasDedicatedGPU &&
+        isSufficientAvailableMemory;
+
+      setIsHighPerformance(isHighPerformanceDevice);
+    };
+
+    checkDevicePerformance();
+
     // Simulate loading for a few seconds
     setTimeout(() => {
       setIsLoading(false);
@@ -60,8 +98,9 @@ function App() {
 
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
-      {isDesktop && <StarryMagicCursor />}
-      <AnimatedCircles />
+      { isDesktop && <StarryMagicCursor />}
+      {isHighPerformance && isDesktop && <AnimatedCircles />}
+
       <Navbar />
       <div className="max-w-screen-xl mx-auto">
         {isDesktop && <CircleCursor />}
