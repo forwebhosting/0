@@ -13,7 +13,7 @@ import CircleCursor from "./components/CursorAnimation/CircleCursor/CircleCursor
 import StarryMagicCursor from "./components/CursorAnimation/StarryMagicCursor/StarryMagicCursor";
 import AnimatedCircles from "./components/BackRound/AnimatedCircles/AnimatedCircles";
 import UserInfo from "./components/userInfo/userInfo";
-// import ChatBot from "./components/ChatBot/ChatBot";
+import ChatBot from "./components/ChatBot/ChatBot";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -105,7 +105,7 @@ function App() {
       <div className="max-w-screen-xl mx-auto">
         {isDesktop && <CircleCursor />}
         <ResumeButton />
-        {/* <ChatBot /> */}
+         <ChatBot /> 
         <Banner />
         <Features />
         <ProjectsSlider />

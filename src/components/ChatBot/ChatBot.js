@@ -1,30 +1,80 @@
-import React, { useState } from 'react';
-import ChatMessage from './ChatMessage';
-import ChatInput from './ChatInput';
+// ChatBot.js
+
+import React, { useState, useRef, useEffect } from 'react';
+import { FaComment, FaTimes } from 'react-icons/fa';
 import './ChatBot.css';
+import data from './data'; // Import the data.js file
 
 const ChatBot = () => {
-  const [messages, setMessages] = useState([
-    { text: 'Hello! How can I help you?', isUser: false },
-  ]);
+  const [showChatbot, setShowChatbot] = useState(false);
+  const [messages, setMessages] = useState([]);
+  const inputRef = useRef(null);
+  const chatboxRef = useRef(null);
 
-  const handleSendMessage = (message) => {
-    setMessages([...messages, { text: message, isUser: true }]);
-    // Perform chatbot logic or API call here and add the bot's response
-    // For testing purposes, let's simulate a bot response after a short delay
+  useEffect(() => {
+    if (showChatbot) {
+      inputRef.current.focus();
+    }
+  }, [showChatbot]);
+
+  const toggleChatbot = () => {
+    setShowChatbot((prev) => !prev);
+  };
+
+  const handleUserMessage = (message) => {
+    setMessages((prevMessages) => [...prevMessages, { text: message, type: 'user' }]);
+
+    // Find all matching responses in the data.js file
+    const matchingResponses = data.filter((response) => response.pattern.test(message));
+
+    // Choose the most relevant response (you can customize this logic)
+    const botResponse = matchingResponses.length > 0 ? matchingResponses[0].reply : "I'm sorry, I didn't understand that. Can you please ask in a different way?";
+
+    // Simulate a delayed response from the chatbot
     setTimeout(() => {
-      setMessages([...messages, { text: 'Sure, I can help with that!', isUser: false }]);
+      setMessages((prevMessages) => [...prevMessages, { text: botResponse, type: 'bot' }]);
+      // Scroll to the bottom of the chatbox
+      chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }, 1000);
   };
 
   return (
-    <div className="chatbot">
-      <div className="chat-messages">
-        {messages.map((msg, index) => (
-          <ChatMessage key={index} message={msg.text} isUser={msg.isUser} />
-        ))}
-      </div>
-      <ChatInput onSendMessage={handleSendMessage} />
+    <div className={`chatbot-container ${showChatbot ? 'show-chatbot' : ''}`}>
+      {showChatbot ? (
+        <div className="chatbot">
+          <div className="chat-header">
+            <h2>Chatbot</h2>
+            <button className="close-btn" onClick={toggleChatbot}>
+              <FaTimes />
+            </button>
+          </div>
+          <div ref={chatboxRef} className="chat-messages">
+            {messages.map((msg, index) => (
+              <div key={index} className={`message ${msg.type}`}>
+                {msg.text}
+              </div>
+            ))}
+          </div>
+          <div className="chat-input">
+            <input
+              ref={inputRef}
+              type="text"
+              placeholder="Type your message..."
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleUserMessage(e.target.value);
+                  e.target.value = '';
+                }
+              }}
+            />
+            <button onClick={() => inputRef.current && handleUserMessage(inputRef.current.value)}>Send</button>
+          </div>
+        </div>
+      ) : (
+        <button className="chatbot-icon" onClick={toggleChatbot}>
+          <FaComment />
+        </button>
+      )}
     </div>
   );
 };
