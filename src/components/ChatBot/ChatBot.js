@@ -1,7 +1,8 @@
 // ChatBot.js
 
 import React, { useState, useRef, useEffect } from 'react';
-import { FaComment, FaTimes } from 'react-icons/fa';
+import {  FaTimes } from 'react-icons/fa';
+import { BsChatText } from "react-icons/bs";
 import './ChatBot.css';
 import data from './data'; // Import the data.js file
 
@@ -72,7 +73,7 @@ const ChatBot = () => {
         </div>
       ) : (
         <button className="chatbot-icon" onClick={toggleChatbot}>
-          <FaComment />
+          <BsChatText />
         </button>
       )}
     </div>
