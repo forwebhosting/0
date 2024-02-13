@@ -19,7 +19,7 @@ const data = [
   },
   {
     pattern: /portfolio|projects/i,
-    reply: `You can check out my creator's portfolio at https://thowfickofficial.com. It showcases various projects and skills!`,
+    reply: `You can check out my creator's portfolio at https://thowfickofficial.netlify.app. It showcases various projects and skills!`,
   },
   {
     pattern: /skills/i,

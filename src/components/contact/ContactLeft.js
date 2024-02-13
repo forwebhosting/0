@@ -68,13 +68,13 @@ const ContactLeft = () => {
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis
           ipsam autem cumque, accusantium dicta odio.
         </p> */}
-        <p
+        {/* <p
           className="text-base text-gray-400 flex items-center gap-2"
           onClick={handlePhoneClick}
           style={{ cursor: "pointer" }}
         >
           Phone: <span className="text-lightText">+91 7845136624</span>
-        </p>
+        </p> */}
         <p
           className="text-base text-gray-400 flex items-center gap-2"
           onClick={handleEmailClick}
