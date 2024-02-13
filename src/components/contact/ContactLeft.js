@@ -36,12 +36,12 @@ const ContactLeft = () => {
     window.open(githubLink, "_blank");
   };
 
-  const handlePhoneClick = () => {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      window.location.href = "tel:+917845136624";
-    }
-  };
+  // const handlePhoneClick = () => {
+  //   const isMobile = window.innerWidth <= 768;
+  //   if (isMobile) {
+  //     window.location.href = "tel:+917845136624";
+  //   }
+  // };
 
   const handleEmailClick = () => {
     window.location.href = "mailto:mdthowfickinfo@gmail.com";
