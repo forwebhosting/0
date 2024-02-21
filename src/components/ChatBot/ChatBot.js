@@ -1,11 +1,10 @@
-// ChatBot.js
-
 import React, { useState, useRef, useEffect } from "react";
 import { FaTimes } from "react-icons/fa";
 import "./ChatBot.css";
 import ChatBotIcon from "./chatbot.png";
 import ChatBotLogo from "./ChatBotLogo.png";
-import popSound from "./popup.mp3";
+import messageTone from "./messageTone.mp3";
+import Popupsound from "./popup-sound.mp3";
 
 const ChatBot = () => {
   const [showChatbot, setShowChatbot] = useState(false);
@@ -22,7 +21,7 @@ const ChatBot = () => {
           handleBotMessage(
             "Hi there! I am SAM (Smart Assist Manager). How can I assist you today?"
           );
-          playPopSound(); // Play the sound effect
+          playMessageTone();
           setFirstTime(false);
         }, 2000);
       }
@@ -30,11 +29,12 @@ const ChatBot = () => {
   }, [showChatbot, firstTime]);
 
   const toggleChatbot = () => {
+    const popupAudio = new Audio(Popupsound);
+    popupAudio.play();
     setShowChatbot((prev) => !prev);
   };
 
   const handleUserMessage = (message) => {
-    // Check if the message is empty or contains only whitespaces
     if (message.trim() === "") {
       return;
     }
@@ -44,15 +44,12 @@ const ChatBot = () => {
       { text: message, type: "user" },
     ]);
 
-    // Simulate a delayed response from the chatbot
     setTimeout(() => {
       handleBotMessage("I am a Beta Version Bot");
-      playPopSound(); // Play the sound effect
-      // Scroll to the bottom of the chatbox
+      playMessageTone();
       chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }, 1000);
 
-    // Clear the input field
     inputRef.current.value = "";
   };
 
@@ -63,8 +60,8 @@ const ChatBot = () => {
     ]);
   };
 
-  const playPopSound = () => {
-    const audio = new Audio(popSound);
+  const playMessageTone = () => {
+    const audio = new Audio(messageTone);
     audio.play();
   };
 
