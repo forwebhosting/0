@@ -68,7 +68,7 @@ const ResumeButton = () => {
 
   const buttonStyle = {
     position: 'fixed',
-    right: '0.5rem',
+    left: '0.5rem',
     bottom: '2rem',
     zIndex: '50',
     display: 'flex',

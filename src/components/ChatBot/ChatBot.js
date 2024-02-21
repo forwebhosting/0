@@ -1,53 +1,100 @@
 // ChatBot.js
 
-import React, { useState, useRef, useEffect } from 'react';
-import {  FaTimes } from 'react-icons/fa';
-import { BsChatText } from "react-icons/bs";
-import './ChatBot.css';
-import data from './data'; // Import the data.js file
+import React, { useState, useRef, useEffect } from "react";
+import { FaTimes } from "react-icons/fa";
+import "./ChatBot.css";
+import ChatBotIcon from "./chatbot.png";
+import ChatBotLogo from "./ChatBotLogo.png";
+import popSound from "./popup.mp3";
 
 const ChatBot = () => {
   const [showChatbot, setShowChatbot] = useState(false);
   const [messages, setMessages] = useState([]);
   const inputRef = useRef(null);
   const chatboxRef = useRef(null);
+  const [firstTime, setFirstTime] = useState(true);
 
   useEffect(() => {
     if (showChatbot) {
       inputRef.current.focus();
+      if (firstTime) {
+        setTimeout(() => {
+          handleBotMessage(
+            "Hi there! I am SAM (Smart Assist Manager). How can I assist you today?"
+          );
+          playPopSound(); // Play the sound effect
+          setFirstTime(false);
+        }, 2000);
+      }
     }
-  }, [showChatbot]);
+  }, [showChatbot, firstTime]);
 
   const toggleChatbot = () => {
     setShowChatbot((prev) => !prev);
   };
 
   const handleUserMessage = (message) => {
-    setMessages((prevMessages) => [...prevMessages, { text: message, type: 'user' }]);
+    // Check if the message is empty or contains only whitespaces
+    if (message.trim() === "") {
+      return;
+    }
 
-    // Find all matching responses in the data.js file
-    const matchingResponses = data.filter((response) => response.pattern.test(message));
-
-    // Choose the most relevant response (you can customize this logic)
-    const botResponse = matchingResponses.length > 0 ? matchingResponses[0].reply : "I'm sorry, I didn't understand that. Can you please ask in a different way?";
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: message, type: "user" },
+    ]);
 
     // Simulate a delayed response from the chatbot
     setTimeout(() => {
-      setMessages((prevMessages) => [...prevMessages, { text: botResponse, type: 'bot' }]);
+      handleBotMessage("I am a Beta Version Bot");
+      playPopSound(); // Play the sound effect
       // Scroll to the bottom of the chatbox
       chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }, 1000);
+
+    // Clear the input field
+    inputRef.current.value = "";
   };
 
+  const handleBotMessage = (message) => {
+    setMessages((prevMessages) => [
+      ...prevMessages,
+      { text: message, type: "bot" },
+    ]);
+  };
+
+  const playPopSound = () => {
+    const audio = new Audio(popSound);
+    audio.play();
+  };
+
+  const isMobileView = window.innerWidth <= 767;
+
   return (
-    <div className={`chatbot-container ${showChatbot ? 'show-chatbot' : ''}`}>
-      {showChatbot ? (
+    <div
+      className={`chatbot-container ${showChatbot ? "show-chatbot" : ""} ${
+        isMobileView ? "mobile-view" : ""
+      }`}
+    >
+      {showChatbot && (
         <div className="chatbot">
           <div className="chat-header">
+            <div className="chatbot-logo-container">
+              <img
+                src={ChatBotLogo}
+                alt="Chatbot Logo"
+                className="chatbot-logo"
+              />
+            </div>
             <h2>Chatbot</h2>
-            <button className="close-btn" onClick={toggleChatbot}>
-              <FaTimes />
-            </button>
+            {isMobileView ? (
+              <button
+                className="mob-chatbot-close-icon"
+                onClick={toggleChatbot}
+              >
+                <FaTimes />
+              </button>
+            ) : null}
           </div>
           <div ref={chatboxRef} className="chat-messages">
             {messages.map((msg, index) => (
@@ -62,18 +109,28 @@ const ChatBot = () => {
               type="text"
               placeholder="Type your message..."
               onKeyPress={(e) => {
-                if (e.key === 'Enter') {
+                if (e.key === "Enter") {
                   handleUserMessage(e.target.value);
-                  e.target.value = '';
                 }
               }}
             />
-            <button onClick={() => inputRef.current && handleUserMessage(inputRef.current.value)}>Send</button>
+            <button
+              onClick={() =>
+                inputRef.current && handleUserMessage(inputRef.current.value)
+              }
+            >
+              Send
+            </button>
           </div>
         </div>
+      )}
+      {showChatbot && !isMobileView ? (
+        <button className="chatbot-close-icon" onClick={toggleChatbot}>
+          <FaTimes />
+        </button>
       ) : (
         <button className="chatbot-icon" onClick={toggleChatbot}>
-          <BsChatText />
+          <img src={ChatBotIcon} alt="Chatbot" />
         </button>
       )}
     </div>
