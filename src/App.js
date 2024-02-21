@@ -11,13 +11,13 @@ import ResumeButton from "./components/ResumeButton/ResumeButton";
 import Loading from "./components/loadingPage/loadingPage";
 import CircleCursor from "./components/CursorAnimation/CircleCursor/CircleCursor";
 import StarryMagicCursor from "./components/CursorAnimation/StarryMagicCursor/StarryMagicCursor";
-import AnimatedCircles from "./components/BackRound/AnimatedCircles/AnimatedCircles";
+// import AnimatedCircles from "./components/BackRound/AnimatedCircles/AnimatedCircles";
 import UserInfo from "./components/userInfo/userInfo";
 import ChatBot from "./components/ChatBot/ChatBot";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
-  const [isHighPerformance, setIsHighPerformance] = useState(false);
+  // const [isHighPerformance, setIsHighPerformance] = useState(false);
 
   useEffect(() => {
     const onMouseMove = () => {
@@ -50,42 +50,42 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const checkDevicePerformance = async () => {
-      // Enhanced logic to determine high-performance device
-      const isFastConnection =
-        navigator.connection &&
-        (navigator.connection.saveData || navigator.connection.downlink >= 1.5);
+    // const checkDevicePerformance = async () => {
+      
+    //   const isFastConnection =
+    //     navigator.connection &&
+    //     (navigator.connection.saveData || navigator.connection.downlink >= 1.5);
 
-      const isPowerfulCPU =
-        navigator.hardwareConcurrency && navigator.hardwareConcurrency >= 4;
+    //   const isPowerfulCPU =
+    //     navigator.hardwareConcurrency && navigator.hardwareConcurrency >= 4;
 
-      const isSufficientRAM =
-        navigator.deviceMemory && navigator.deviceMemory >= 4;
+    //   const isSufficientRAM =
+    //     navigator.deviceMemory && navigator.deviceMemory >= 4;
 
-      const hasDedicatedGPU =
-        navigator.userAgent &&
-        (navigator.userAgent.includes("NVIDIA") ||
-          navigator.userAgent.includes("AMD") ||
-          navigator.userAgent.includes("Intel"));
+    //   const hasDedicatedGPU =
+    //     navigator.userAgent &&
+    //     (navigator.userAgent.includes("NVIDIA") ||
+    //       navigator.userAgent.includes("AMD") ||
+    //       navigator.userAgent.includes("Intel"));
 
-      let isSufficientAvailableMemory = true;
+    //   let isSufficientAvailableMemory = true;
 
-      if (window.performance && window.performance.memory) {
-        const { totalJSHeapSize } = window.performance.memory;
-        isSufficientAvailableMemory = totalJSHeapSize >= 500000000; // 500 MB in bytes
-      }
+    //   if (window.performance && window.performance.memory) {
+    //     const { totalJSHeapSize } = window.performance.memory;
+    //     isSufficientAvailableMemory = totalJSHeapSize >= 500000000; 
+    //   }
 
-      const isHighPerformanceDevice =
-        isFastConnection &&
-        isPowerfulCPU &&
-        isSufficientRAM &&
-        hasDedicatedGPU &&
-        isSufficientAvailableMemory;
+    //   const isHighPerformanceDevice =
+    //     isFastConnection &&
+    //     isPowerfulCPU &&
+    //     isSufficientRAM &&
+    //     hasDedicatedGPU &&
+    //     isSufficientAvailableMemory;
 
-      setIsHighPerformance(isHighPerformanceDevice);
-    };
+    //   setIsHighPerformance(isHighPerformanceDevice);
+    // };
 
-    checkDevicePerformance();
+    // checkDevicePerformance();
 
     // Simulate loading for a few seconds
     setTimeout(() => {
@@ -99,7 +99,7 @@ function App() {
   return (
     <div className="w-full h-auto bg-bodyColor text-lightText px-4">
       {isDesktop && <StarryMagicCursor />}
-      {isHighPerformance && isDesktop && <AnimatedCircles />}
+      {/* {isHighPerformance && isDesktop && <AnimatedCircles />} */}
 
       <Navbar />
       <div className="max-w-screen-xl mx-auto">

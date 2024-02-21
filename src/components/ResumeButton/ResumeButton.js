@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Resumepdf } from '../../assets/index';
 import './ResumeButton.css';
 import resumeButtonData from '../../data/resumeButtonData';
 import { MdDownloading } from "react-icons/md";
-import popupSound from './popup-sound.mp3';
 
 const ResumeButton = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -12,8 +11,6 @@ const ResumeButton = () => {
   const { buttonText, messageText, downloadTitle } = resumeButtonData;
 
   const handleButtonClick = () => {
-    playPopupSound(); // Play the popup sound when the button is clicked
-
     const resumeUrl = Resumepdf;
     const a = document.createElement('a');
     a.href = resumeUrl;
@@ -21,55 +18,29 @@ const ResumeButton = () => {
     a.click();
   };
 
-  const playPopupSound = useCallback(() => {
-    if (document.visibilityState === 'visible' && showMessage) {
-      const audio = new Audio(popupSound);
-
-      const playAudio = () => {
-        audio.play()
-          .then(() => {
-            // Successfully started playing
-          })
-          .catch(error => {
-            console.error('Failed to play audio:', error);
-          });
-      };
-
-      if (audio.readyState >= 2) {
-        // If the audio is already loaded, play it
-        playAudio();
-      } else {
-        // If the audio is not loaded, request user interaction for audio playback
-        document.addEventListener('click', playAudio, { once: true });
-      }
-    }
-  }, [showMessage]);
-
   useEffect(() => {
     const initialTimeout = setTimeout(() => {
       setShowMessage(true);
-      playPopupSound();
     }, 8000);
 
     return () => clearTimeout(initialTimeout);
-  }, [playPopupSound]);
+  }, []);
 
   useEffect(() => {
     const loopTimeout = setTimeout(() => {
       setShowMessage(false);
       setTimeout(() => {
         setShowMessage(true);
-        playPopupSound();
       }, 5000);
     }, 5000);
 
     return () => clearTimeout(loopTimeout);
-  }, [showMessage, playPopupSound]);
+  }, [showMessage]);
 
   const buttonStyle = {
     position: 'fixed',
     right: '5px',
-    bottom: '7rem',
+    bottom: '6rem',
     zIndex: '50',
     display: 'flex',
     flexDirection: 'column',
@@ -81,15 +52,10 @@ const ResumeButton = () => {
     visibility: isHovered ? 'visible' : 'hidden',
   };
 
-  useEffect(() => {
-    document.addEventListener('visibilitychange', playPopupSound);
-    return () => document.removeEventListener('visibilitychange', playPopupSound);
-  }, [showMessage, playPopupSound]);
-
   return (
     <div style={buttonStyle}>
       {showMessage && (
-        <div className=" message-card message-card-light">
+        <div className="message-card message-card-light">
           <p>{messageText}</p>
         </div>
       )}
@@ -101,7 +67,6 @@ const ResumeButton = () => {
         title={downloadTitle}
       >
         <MdDownloading size={28} />
-        {/* <div className="ResumeButton-ripple"></div> */}
       </button>
       <p style={buttonTextStyle}>{buttonText}</p>
     </div>
