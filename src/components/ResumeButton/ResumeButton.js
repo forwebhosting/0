@@ -68,8 +68,8 @@ const ResumeButton = () => {
 
   const buttonStyle = {
     position: 'fixed',
-    left: '0.5rem',
-    bottom: '2rem',
+    right: '5px',
+    bottom: '7rem',
     zIndex: '50',
     display: 'flex',
     flexDirection: 'column',
@@ -101,7 +101,7 @@ const ResumeButton = () => {
         title={downloadTitle}
       >
         <MdDownloading size={28} />
-        <div className="ResumeButton-ripple"></div>
+        {/* <div className="ResumeButton-ripple"></div> */}
       </button>
       <p style={buttonTextStyle}>{buttonText}</p>
     </div>

@@ -53,7 +53,7 @@ const CustomCursor = () => {
       }`}
       style={{ left: `${mousePosition.x}px`, top: `${mousePosition.y}px` }}
     >
-      <div className="cursor-inner"></div>
+      {/* <div className="cursor-inner"></div> */}
       <div className="ripple"></div>
     </div>
   );
