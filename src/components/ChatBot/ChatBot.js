@@ -19,7 +19,7 @@ const ChatBot = () => {
       if (firstTime) {
         setTimeout(() => {
           handleBotMessage(
-            "Hi there! I am SAM (Smart Assist Manager). How can I assist you today?"
+            "Hello! I am Thowfick's virtual assistant. How may I assist you today?"
           );
           playMessageTone();
           setFirstTime(false);
@@ -45,7 +45,7 @@ const ChatBot = () => {
     ]);
 
     setTimeout(() => {
-      handleBotMessage("I am a Beta Version Bot");
+      handleBotMessage("I am in Developing stage");
       playMessageTone();
       chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }, 1000);
