@@ -1,0 +1,29 @@
+
+[
+    {
+      "patterns": ["hello", "hi", "hey"],
+      "reply": "Hello! How are you?"
+    },
+    {
+      "patterns": ["how are you"],
+      "reply": "I'm just a computer program, but thanks for asking!"
+    },
+    {
+      "patterns": ["your name", "who are you"],
+      "reply": "I am ThowfickBot, here to help you."
+    },
+    {
+      "patterns": ["what can you do", "your abilities"],
+      "reply": "I can provide information, answer questions, and assist you with various tasks."
+    },
+    {
+      "patterns": ["tell me a joke", "joke"],
+      "reply": "Why don't scientists trust atoms? Because they make up everything!"
+    },
+    {
+      "patterns": ["goodbye", "bye", "see you later"],
+      "reply": "Goodbye! If you have more questions, feel free to ask."
+    }
+    
+  ]
+  

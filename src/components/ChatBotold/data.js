@@ -3,7 +3,7 @@
 const data = [
   {
     pattern: /hello|hi|hey/i,
-    reply: `Hello! How can I assist you, ThowfickOfficial?`,
+    reply: `Hello! How are you?`,
   },
   {
     pattern: /how are you/i,

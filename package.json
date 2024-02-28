@@ -7,6 +7,8 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
+    "bowser": "^2.11.0",
+    "didyoumean": "^1.2.2",
     "framer-motion": "^10.17.9",
     "gsap": "^3.12.2",
     "react": "^18.2.0",
