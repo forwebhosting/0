@@ -217,6 +217,42 @@
   background-color: #ff4757; /* Darker design color on hover */
 }
 
+
+/* ChatBot.css */
+
+/* Style for options */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.options button {
+  background-color: #ff014f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  outline: none;
+  margin: 5px;
+}
+
+.options button:hover {
+  background-color: #ff014f;
+  transform: scale(1.05);
+}
+
+.options button:focus {
+  box-shadow: 0 0 0 3px rgba(255, 1, 79, 0.4);
+}
+
+
+
 /*  this media query for mobile view */
 @media only screen and (max-width: 767px) {
   .chatbot-container {
