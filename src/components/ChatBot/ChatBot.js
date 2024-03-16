@@ -93,170 +93,114 @@ const ChatBot = () => {
   };
 
   const handleOptionClick = async (option) => {
-    // Show confirmation message based on the selected option
-    switch (option) {
-      case "Shall i say about you?":
-        handleBotMessage(
-          `You have chosen: "${option}". Please wait while I gather information about you...`
-        );
-        break;
-      case "Do you want to know about me?":
-        handleBotMessage(
-          `You have chosen: "${option}". Let me provide some information about myself...`
-        );
-        break;
-      case "Shall i tell a joke to you?":
-        handleBotMessage(
-          `You have chosen: "${option}". Get ready for a good laugh...`
-        );
-        break;
-      default:
-        // Handle default case
-        break;
-    }
-    playMessageTone();
-    chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-
-    // Handle each option accordingly
-    switch (option) {
-      case "Shall i say about you?":
-        // Fetch user information
-        const userMessages = await fetchUserInfo();
-        if (userMessages) {
-          // Display user messages in the chat
-          userMessages.forEach((userMessage, index) => {
+    // Define configuration object for each option
+    const optionConfig = {
+      "Shall i say about you?": {
+        message: "Please wait while I gather information about you...",
+        action: async () => {
+          try {
+            const userMessages = await fetchUserInfo();
+            if (userMessages) {
+              userMessages.forEach((userMessage, index) => {
+                setTimeout(() => {
+                  handleBotMessage(userMessage);
+                  playMessageTone();
+                  chatboxRef.current.scrollTop =
+                    chatboxRef.current.scrollHeight;
+                }, 1000 * (index + 1));
+              });
+            } else {
+              throw new Error("Unable to retrieve user information.");
+            }
+          } catch (error) {
+            handleBotMessage(error.message);
+            playMessageTone();
+            chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
+          }
+        },
+      },
+      "Do you want to know about me?": {
+        message: "Let me provide some information about myself...",
+        action: () => {
+          const aboutMeMessages = [
+            "You can check out my creator's portfolio at https://thowfickofficial.netlify.app. It showcases various projects and skills!",
+            "Mohamed Thowfick has expertise in web development, programming languages like JavaScript, React, Node.js, and more!",
+            "With a passion for cybersecurity, ethical hacking, and full stack development, Mohamed Thowfick is an aspiring IT professional.",
+            "Explore Mohamed Thowfick's skills in Git, Docker, WordPress, MongoDB, MySQL, Python, Node.js, PHP, C, Bash, Typing, Linux, Networking, Computer Hardware, Web Applications, CLI App Development on Linux, Photoshop, Figma, React, HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap, and more.",
+            "Explore Mohamed Thowfick's internship experience in Cyber Security, Full Stack Development, and Web Development.",
+            "Learn about Mohamed Thowfick's educational journey, including a Bachelor of Business Administration, Secondary School Education, and a Diploma in Computer Hardware Technology.",
+            "With a passion for cybersecurity, ethical hacking, and full stack development, I'm Mohamed Thowfick—an aspiring IT professional. Throughout my self-learning journey, My career goals revolve around exploring the extreme of technology. I aspire to make a meaningful impact in the IT and cybersecurity industry by ensuring robust security measures and staying ahead of emerging threats. Let's connect to explore how my skills and passion can contribute to the advancement of cybersecurity and the IT industry. Seeking growth opportunities and ready to make a positive impact!",
+          ];
+          aboutMeMessages.forEach((message, index) => {
             setTimeout(() => {
-              handleBotMessage(userMessage);
+              handleBotMessage(message);
               playMessageTone();
               chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-            }, 1000 * (index + 1)); // Adjust the delay as needed
+            }, 1000 * (index + 1));
           });
-        } else {
-          // Handle the case when user information cannot be fetched
+        },
+      },
+      "Shall i tell a joke to you?": {
+        message: "Get ready for a good laugh...",
+        action: () => {
+          handleBotMessage(
+            `Alright, here's a joke for you: ${getRandomJoke()}`
+          );
+          playMessageTone();
+          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
           setTimeout(() => {
-            handleBotMessage("Unable to retrieve user information.");
+            handleBotMessage("Would you like to hear another joke?");
             playMessageTone();
             chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
           }, 1000);
-        }
-        break;
-      case "Do you want to know about me?":
-        setTimeout(() => {
+          setTimeout(() => {
+            handleBotMessage("Please select an option:", ["Yes", "No"]);
+            playMessageTone();
+            chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
+          }, 2000);
+        },
+      },
+      Yes: {
+        message: "Here's another joke for you:",
+        action: () => {
           handleBotMessage(
-            `You can check out my creator's portfolio at https://thowfickofficial.netlify.app. It showcases various projects and skills!`
+            `${
+              optionConfig["Shall i tell a joke to you?"].message
+            } ${getRandomJoke()}`
           );
           playMessageTone();
           chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 1000);
-
-        setTimeout(() => {
-          handleBotMessage(
-            `Mohamed Thowfick has expertise in web development, programming languages like JavaScript, React, Node.js, and more!`
-          );
+          setTimeout(() => {
+            handleBotMessage("Would you like to hear another joke?");
+            playMessageTone();
+            chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
+          }, 1000);
+          setTimeout(() => {
+            handleBotMessage("Please select an option:", ["Yes", "No"]);
+            playMessageTone();
+            chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
+          }, 2000);
+        },
+      },
+      No: {
+        message:
+          "Thank you for chatting with me! If you have any other questions, feel free to ask.",
+        action: () => {
+          handleBotMessage(optionConfig[option].message);
           playMessageTone();
           chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 2000);
+        },
+      },
+    };
 
-        setTimeout(() => {
-          handleBotMessage(
-            `With a passion for cybersecurity, ethical hacking, and full stack development, Mohamed Thowfick is an aspiring IT professional.`
-          );
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 3000);
+    // Execute action based on the selected option
+    const { message, action } = optionConfig[option];
+    handleBotMessage(`You have chosen: "${option}". ${message}`);
+    await action();
 
-        setTimeout(() => {
-          handleBotMessage(
-            `Explore Mohamed Thowfick's skills in Git, Docker, WordPress, MongoDB, MySQL, Python, Node.js, PHP, C, Bash, Typing, Linux, Networking, Computer Hardware, Web Applications, CLI App Development on Linux, Photoshop, Figma, React, HTML5, CSS3, JavaScript, Tailwind CSS, Bootstrap, and more.`
-          );
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 4000);
-
-        setTimeout(() => {
-          handleBotMessage(
-            `Explore Mohamed Thowfick's internship experience in Cyber Security, Full Stack Development, and Web Development.`
-          );
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 5000);
-
-        setTimeout(() => {
-          handleBotMessage(
-            `Learn about Mohamed Thowfick's educational journey, including a Bachelor of Business Administration, Secondary School Education, and a Diploma in Computer Hardware Technology.`
-          );
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 6000);
-
-        setTimeout(() => {
-          handleBotMessage(
-            `With a passion for cybersecurity, ethical hacking, and full stack development, I'm Mohamed Thowfick—an aspiring IT professional. Throughout my self-learning journey, My career goals revolve around exploring the extreme of technology. I aspire to make a meaningful impact in the IT and cybersecurity industry by ensuring robust security measures and staying ahead of emerging threats. Let's connect to explore how my skills and passion can contribute to the advancement of cybersecurity and the IT industry. Seeking growth opportunities and ready to make a positive impact!`
-          );
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 7000);
-
-        // You can continue adding more messages as needed
-        break;
-      case "Shall i tell a joke to you?":
-        handleBotMessage(`Alright, here's a joke for you: ${getRandomJoke()}`);
-        playMessageTone();
-        chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-
-        // Ask if the user wants to hear another joke
-        setTimeout(() => {
-          handleBotMessage("Would you like to hear another joke?");
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 1000);
-
-        // Provide options for the user to choose from
-        setTimeout(() => {
-          handleBotMessage("Please select an option:", ["Yes", "No"]);
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 2000);
-        break;
-      // Handle the case when the user wants to hear another joke
-      case "Yes":
-        // Get and display another joke
-        handleBotMessage(
-          `Alright, here's another joke for you: ${getRandomJoke()}`
-        );
-        playMessageTone();
-        chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-
-        // Ask if the user wants to hear another joke
-        setTimeout(() => {
-          handleBotMessage("Would you like to hear another joke?");
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 1000);
-
-        // Provide options for the user to choose from
-        setTimeout(() => {
-          handleBotMessage("Please select an option:", ["Yes", "No"]);
-          playMessageTone();
-          chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        }, 2000);
-        break;
-
-      // Handle the case when the user doesn't want to hear another joke
-      case "No":
-        // Display a thank you message
-        handleBotMessage(
-          "Thank you for chatting with me! If you have any other questions, feel free to ask."
-        );
-        playMessageTone();
-        chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
-        break;
-      // Handle other cases similarly
-
-      default:
-        // Handle default case
-        break;
-    }
+    // Play message tone and scroll to bottom of chatbox
+    playMessageTone();
+    chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
   };
 
   // Function to get a random joke from the joke data
