@@ -14,6 +14,7 @@ const ChatBot = () => {
   const inputRef = useRef(null);
   const chatboxRef = useRef(null);
   const [firstTime, setFirstTime] = useState(true);
+  const [chatbotOpened, setChatbotOpened] = useState(false);
 
   useEffect(() => {
     if (showChatbot) {
@@ -34,6 +35,7 @@ const ChatBot = () => {
     const popupAudio = new Audio(Popupsound);
     popupAudio.play();
     setShowChatbot((prev) => !prev);
+    setChatbotOpened((prev) => !prev);
   };
 
   const handleUserMessage = async (message) => {
@@ -212,16 +214,22 @@ const ChatBot = () => {
 
   useEffect(() => {
     // Scroll to the bottom of the chatbox container
-    if (chatboxRef.current) {
+    if (chatboxRef.current && (messages.length > 0 || chatbotOpened)) {
       chatboxRef.current.scrollTop = chatboxRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [messages, chatbotOpened]);
 
   return (
     <div
       className={`chatbot-container ${showChatbot ? "show-chatbot" : ""} ${
         isMobileView ? "mobile-view" : ""
       }`}
+      onClick={() => {
+        // When the chatbot container is clicked, close it
+        if (isMobileView && showChatbot) {
+          toggleChatbot();
+        }
+      }}
     >
       {showChatbot && (
         <div className="chatbot">
